@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/Env.php';
+require_once __DIR__ . '/../Env.php';
 loadEnv(__DIR__ . '/../../.env');
 
 // Definindo uma classe abstrata chamada Connection
