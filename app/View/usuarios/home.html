@@ -1,0 +1,278 @@
+{% include 'caixaMensagem.html' %}
+
+<section class="container__cpi">
+
+    <div class="titulo__secao">
+        <p>
+            Usuários
+        </p>
+        <div class="barra__titulo_secao"></div>
+    </div>
+
+    <!-- Modal Cadastrar -->
+    <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#modalConsultaPM">
+        Cadastrar
+    </button>
+
+    <table class="table table-striped mt-3">
+        <tr>
+            <th>Pt/Grad.</th>
+            <th>RE</th>
+            <th>Nome</th>
+            <th>OPM</th>
+            <th>Perfil</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+
+        {% for usuario in usuarios %}
+        <tr>
+            <td>{{ usuario.pt_gr }}</td>
+            <td>{{ usuario.re }}</td>
+            <td>{{ usuario.nome }}</td>
+            <td>{{ usuario.opm }}</td>
+            <td>{{ usuario.cod_perfil }} - {{ usuario.perfil }}</td>
+            <td>
+                {% if usuario.status_usuario == 1 %}
+                    Ativo
+                {% else %}
+                    Inativo
+                {% endif %}
+            </td>
+            <td>
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <button type="button" class="btn btn-danger"
+                        onclick="excluirUsuario(this)" class="btn btn-primary" data-id="{{ usuario.id_usuario }}" data-ptgr="{{ usuario.pt_gr }}" data-re="{{ usuario.re }}" data-nome="{{ usuario.nome }}" data-opm="{{ usuario.opm }}" data-perfil="{{ usuario.perfil }}" data-codperfil="{{ usuario.cod_perfil }}"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                            <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                          </svg>
+                    </button>
+                    <button type="button" class="btn btn-success">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                          </svg>
+                    </button>
+                    <button type="button" class="btn btn-primary"
+                            onclick="editarUsuario(this)"
+                            data-id="{{ usuario.id_usuario }}"
+                            data-ptgr="{{ usuario.pt_gr }}"
+                            data-re="{{ usuario.re }}"
+                            data-nome="{{ usuario.nome }}"
+                            data-opm="{{ usuario.opm }}"
+                            data-perfil="{{ usuario.perfil }}"
+                            data-codperfil="{{ usuario.cod_perfil }}"
+                            data-status="{{ usuario.status_usuario }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                            <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/>
+                          </svg>
+                    </button>
+                  </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+      <!-- Modal Consulta -->
+    <div class="modal fade" id="modalConsultaPM" tabindex="-1" aria-labelledby="modalConsultaPMLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form action="?pagina=usuarios&metodo=consultaPM" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modalConsultaPMLabel">Cadastrar Usuário</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="" class="form-label">Pesquisar policial</label>
+                                <input type="text" class="form-control number" maxlength="6" id="buscar_re" name="re">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal-container"></div>
+
+    
+    {% if retornoConsulta  %}
+
+    <!-- Modal Cadastrar -->
+    <div class="modal fade" id="modalCadastrar" tabindex="-1" aria-labelledby="modalCadastrarLabel" aria-hidden="true">        
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalPolicialLabel">Buscar PM</h1>
+                    
+                    <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">                      
+
+                    <form class="area__busca" action="?pagina=usuarios&metodo=consultaPM" method="post">
+                        <input type="text" class="form-control number" name="re" maxlength="6" placeholder="RE" required>
+                        <button type="submit" class="btn btn-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+                        </button>
+                    </form>
+                   
+                </div>
+
+
+                <form action="?pagina=usuarios&metodo=incluirUsuario" method="post">
+
+                    <div class="row" style="margin: 0; padding: 15px;">
+                        <table class="table table-bordered table-striped">
+                            <tr>
+                                <td rowspan="5" class="td__left" style="width: 80px;"><img src="{{foto}}" alt="">
+                                </td>
+                                <td class="td__left">Posto/Graduação</td>
+                                <td class="td__left"><strong>{{ptgr}}</strong></td>
+                                <td class="td__left">RE</td>
+                                <td class="td__left"><strong>{{re}}-{{dgre}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="td__left">Nome</td>
+                                <td class="td__left"><strong>{{nome}}</strong></td>
+                                <td class="td__left">Guerra</td>
+                                <td class="td__left"><strong>{{guerra}}</td>
+                            </tr>
+                            <tr>
+                                <td class="td__left">Unidade</td>
+                                <td class="td__left"><strong>{{opm}}</strong></td>
+                                <td class="td__left">Código OPM</td>
+                                <td class="td__left"><strong>{{codopm}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="td__left">Email</td>
+                                <td class="td__left"><strong>{{email}}</strong></td>
+                                <td class="td__left">Função</td>
+                                <td class="td__left"><strong>{{funcao}}</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                   
+
+
+                    <div class="modal-body">
+
+                        <div class="row mt-3" hidden>
+
+                            <div class="col-md-6" hidden>
+                                <label for="form-label">ID Turma</label>
+                                <input type="text" class="form-control number" value="{{id_turma}}" name="id_turma" id="id_turma"  readonly>
+                            </div>
+
+                            <div class="col-md-5">
+                                <label for="form-label">Posto/Grad.</label>
+                                <input type="text" class="form-control number" value="{{ptgr}}" name="ptgr" id="ptgr"  readonly>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="form-label">RE</label>
+                                <input type="text" class="form-control number" value="{{re}}" name="re" id="re" maxlength="6" readonly>
+                            </div>
+
+                            <div class="col-md-1">
+                                <label for="form-label">Dig.</label>
+                                <input type="text" class="form-control number" value="{{dgre}}" name="dgre" id="dgre" readonly>
+                            </div>
+                            
+                            <div class="col-md-3">
+                                <label for="form-label">CPF</label>
+                                <input type="text" class="form-control number" value="{{cpf}}" name="cpf" id="cpf" readonly>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="form-label">NOME</label>
+                                <input type="text" class="form-control number" value="{{nome}}" name="nome" id="nome" readonly>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="form-label">Guerra</label>
+                                <input type="text" class="form-control number" value="{{guerra}}" name="guerra" id="guerra" readonly>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="form-label">E-mail</label>
+                                <input type="text" class="form-control number" value="{{email}}" name="email" id="email" readonly>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <label for="form-label">OPM</label>
+                                <input type="text" class="form-control number" value="{{opm}}" name="opm" id="opm"  readonly>
+                            </div>
+
+                            
+                            <div class="col-md-4">
+                                <label for="form-label">CODOPM</label>
+                                <input type="text" class="form-control number" value="{{codopm}}" name="codopm" id="codopm"  readonly>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="form-label">Função</label>
+                                <input type="text" class="form-control number" value="{{funcao}}" name="funcao" id="funcao" readonly>
+                            </div>
+
+                            
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label for="form-label">Perfil</label>
+                                <select name="perfil" id="perfil" class="form-select" required>
+                                    <option value="">Selecione...</option>
+                                    {% for perfil in perfis %}
+                                        <option value="{{perfil.cod_perfil}}">{{perfil.perfil}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="form-label">Telefone</label>
+                                <input type="text" class="form-control number" value="" name="telefone" id="telefone" maxlength="11">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Confirmar</button>
+                    </div>
+                </form>            
+            </div>
+        </div>
+    </div>
+
+   
+    <!-- Script para abrir o modal automaticamente -->
+    <script>
+        // Espera o carregamento completo da página
+        document.addEventListener("DOMContentLoaded", function () {
+            // Inicializa o modal e exibe-o
+            var modal = new bootstrap.Modal(document.getElementById('modalCadastrar'));
+            modal.show();  // Abre o modal
+        });
+        </script>
+
+    {% endif %}
+
+
+    
+
+</section>
+
+<script src="public/js/usuarios.js"></script>
+

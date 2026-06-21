@@ -1,0 +1,62 @@
+{% include 'caixaMensagem.html' %}
+
+<section class="container__cpi">
+
+{% include 'breadcrumb.html' %}
+
+    <div class="titulo__secao">
+        <p>
+            Consultas
+        </p>
+        <div class="barra__titulo_secao"></div>
+    </div>
+
+    <div class="menu__consulta">
+
+        <div class="item__consulta">
+            <div class="item__icon">
+
+            </div>
+            <div class="item__label">
+                Meu EAP
+            </div>
+        </div>
+
+        <div class="item__consulta">
+            <div class="item__icon">
+
+            </div>
+            <div class="item__label">
+                Consultar PM
+            </div>
+        </div>
+
+        <div class="item__consulta">
+            <div class="item__icon">
+
+            </div>
+            <div class="item__label">
+                Consultar por OPM
+            </div>
+        </div>
+
+    </div>
+
+    <form action="?pagina=Consultas&metodo=porRe" method="post">
+
+        <div class="row">
+            <div class="col-md-4">
+                <label for="" class="form-label">Por PM:</label>
+                <input type="text" class="form-control" name="re">
+            </div>
+            <div class="col-md-2">
+                <label for="" class="form-label">&nbsp;&nbsp;</label>
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+        </div>
+
+    </form>
+
+
+
+</section>

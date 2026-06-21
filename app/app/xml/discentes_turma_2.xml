@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<discentes>
+  <discente>
+    <pt_gr>2. SGT PM</pt_gr>
+    <re>144795</re>
+    <nome>FRANCIS REGINALDO DE GOES CAMPOS</nome>
+    <opm>CPI-7</opm>
+    <nota_ead>6.000</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>131323</re>
+    <nome>MARCIO FRANCISCO CARDENA</nome>
+    <opm>40.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>131323</re>
+    <nome>MARCIO FRANCISCO CARDENA</nome>
+    <opm>40.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>1. SGT PM</pt_gr>
+    <re>132165</re>
+    <nome>ANDRE MAURICI NUNES</nome>
+    <opm>CPI-7</opm>
+    <nota_ead>4.000</nota_ead>
+  </discente>
+</discentes>

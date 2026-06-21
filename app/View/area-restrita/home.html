@@ -1,0 +1,59 @@
+<div class="container mt-5">
+
+    
+    <div class="titulo__divisao">
+        <h5>Área Restrita</h5>
+        <div class="titulo__barra"></div>
+    </div>
+
+    <div class="container__menu">
+
+    
+    
+        <a class="menu__modulo">
+            <div class="modulo__icon">
+                <img src="public/assets/icon/config-site.png" alt="">
+            </div>
+            <div class="modulo__label">
+                Manutenção Site
+            </div>
+        </a>
+    
+        <div class="menu__modulo">
+            <a href="" data-bs-toggle="modal" data-bs-target="#modalBuscaPM">
+                <div class="modulo__icon">
+                    <img src="public/assets/icon/busca-pm.png"  alt="">
+                </div>
+                <div class="modulo__label">
+                    Busca PM
+                </div>
+            </a>
+        </div> 
+    
+        <!-- Modal Busca PM -->
+        <div class="modal fade" id="modalBuscaPM" tabindex="-1" aria-labelledby="modalBuscaPMLabel" aria-hidden="true">
+            <form class="modal-dialog" action="?pagina=Policial&metodo=pesquisarPM" method="post">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalBuscaPMLabel">Pesquisar policial</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="re" class="form-label">Digite o RE ou CPF</label>
+                            <input type="text" class="form-control" name="re" placeholder="" maxlength="11" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,3 @@
+# Proteger o diretório de sessões
+Deny from all
+

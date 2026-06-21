@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<discentes>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>982143</re>
+    <nome>JULIANA DE LOURDES MARCELINO</nome>
+    <opm>CPI-7</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>975213</re>
+    <nome>ALBERTO DE RENZIS</nome>
+    <opm>7.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>991795</re>
+    <nome>RENIVALDO DE ALMEIDA</nome>
+    <opm>7.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>975202</re>
+    <nome>JOSE EDUARDO MARCELO</nome>
+    <opm>7.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>119311</re>
+    <nome>RAFAEL BRIZOLLA DE ALMEIDA</nome>
+    <opm>7.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>123874</re>
+    <nome>FABIO HENRIQUE DOS SANTOS</nome>
+    <opm>7.BPM/I</opm>
+    <nota_ead>2.75</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>126649</re>
+    <nome>MAURICIO CIRIACO RAMOS</nome>
+    <opm>CPI-7</opm>
+    <nota_ead>3.50</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>127556</re>
+    <nome>TIAGO FERNANDES DOS SANTOS</nome>
+    <opm>7.BPM/I</opm>
+    <nota_ead>3.75</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>143027</re>
+    <nome>ORLANDO DE MEDEIROS JUNIOR</nome>
+    <opm>40.BPM/I</opm>
+    <nota_ead>3.75</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>SD PM - 1C</pt_gr>
+    <re>147923</re>
+    <nome>JANAILSON SOUZA DA SILVA</nome>
+    <opm>50.BPM/I</opm>
+    <nota_ead>3.75</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>SD PM - 1C</pt_gr>
+    <re>192356</re>
+    <nome>FRANCIMAR SILVESTRE DA SILVA</nome>
+    <opm>14.BAEP</opm>
+    <nota_ead>2.75</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>SD PM - 1C</pt_gr>
+    <re>157124</re>
+    <nome>MURILO HENRIQUE MACARRONI</nome>
+    <opm>40.BPM/I</opm>
+    <nota_ead>3.25</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>SD PM - 1C</pt_gr>
+    <re>180969</re>
+    <nome>ANDREI FERNANDO GAEM DA SILVA</nome>
+    <opm>40.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>962343</re>
+    <nome>EVERALDO VANDER DE PAIVA</nome>
+    <opm>50.BPM/I</opm>
+    <nota_ead>3.25</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>104125</re>
+    <nome>CHRISTIAN ARRUDA DE SOUZA</nome>
+    <opm>50.BPM/I</opm>
+    <nota_ead>2.75</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>SD PM - 1C</pt_gr>
+    <re>154407</re>
+    <nome>WILLIAM BRUBEIKER OLIVEIRA EVANGELISTA</nome>
+    <opm>50.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>SD PM - 1C</pt_gr>
+    <re>162109</re>
+    <nome>LIOR MATEUS CORREA</nome>
+    <opm>50.BPM/I</opm>
+    <nota_ead>4.00</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>SD PM - 1C</pt_gr>
+    <re>171110</re>
+    <nome>ANDRE HENRIQUE NUNES</nome>
+    <opm>50.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>136647</re>
+    <nome>FELIPE COSTA E SILVA</nome>
+    <opm>14.BAEP</opm>
+    <nota_ead>3.75</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>132850</re>
+    <nome>ROBERVAL  LEITE DE OLIVEIRA</nome>
+    <opm>14.BAEP</opm>
+    <nota_ead>4.00</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>123045</re>
+    <nome>CLAUDIO DA SILVA FURQUIM</nome>
+    <opm>14.BAEP</opm>
+    <nota_ead>3.75</nota_ead>
+  </discente>
+</discentes>

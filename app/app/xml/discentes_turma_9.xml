@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<discentes>
+  <discente>
+    <pt_gr>1. SGT PM</pt_gr>
+    <re>111962</re>
+    <nome>RAFAEL GOMES BELMELLO</nome>
+    <opm>CPI-7</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>1. SGT PM</pt_gr>
+    <re>962403</re>
+    <nome>SERGIO RICARDO SALA CARRILO</nome>
+    <opm>CPI-7</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>2. SGT PM</pt_gr>
+    <re>119432</re>
+    <nome>AUGUSTO FANTI</nome>
+    <opm>7.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>1. SGT PM</pt_gr>
+    <re>127087</re>
+    <nome>RAMON FOZ</nome>
+    <opm>7.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>2. SGT PM</pt_gr>
+    <re>140208</re>
+    <nome>CLAYTON DE LIMA ROSA</nome>
+    <opm>7.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>SUBTEN PM</pt_gr>
+    <re>111942</re>
+    <nome>JULIANO DA SILVA MELO</nome>
+    <opm>40.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>1. SGT PM</pt_gr>
+    <re>973250</re>
+    <nome>JOSE FABIANO DA SILVA</nome>
+    <opm>40.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>1. SGT PM</pt_gr>
+    <re>137773</re>
+    <nome>JONATHAN JOSE ANHAIA</nome>
+    <opm>40.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>2. SGT PM</pt_gr>
+    <re>134973</re>
+    <nome>LEONARDO JOSE DA SILVA</nome>
+    <opm>40.BPM/I</opm>
+    <nota_ead>3.00</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>2. SGT PM</pt_gr>
+    <re>120653</re>
+    <nome>ITAMAR RODRIGUES</nome>
+    <opm>40.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>1. SGT PM</pt_gr>
+    <re>113604</re>
+    <nome>ANDRE LUIZ COSSANI</nome>
+    <opm>50.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>1. SGT PM</pt_gr>
+    <re>118684</re>
+    <nome>JORGE LUIS ANDREUCI</nome>
+    <opm>50.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>1. SGT PM</pt_gr>
+    <re>130540</re>
+    <nome>HAROLDO CARDOSO DE BRITO</nome>
+    <opm>50.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>1. SGT PM</pt_gr>
+    <re>111991</re>
+    <nome>RICARDO JUSTI CAMARGO</nome>
+    <opm>50.BPM/I</opm>
+    <nota_ead>3.50</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>2. SGT PM</pt_gr>
+    <re>117337</re>
+    <nome>FABIANO GUIMARÃES ALVES DA SILVA</nome>
+    <opm>50.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>2. SGT PM</pt_gr>
+    <re>965611</re>
+    <nome>LUCIANO CAMPOS DE ARAUJO</nome>
+    <opm>50.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>2. SGT PM</pt_gr>
+    <re>143032</re>
+    <nome>JOFSON DE LIMA SOARES</nome>
+    <opm>50.BPM/I</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>1. SGT PM</pt_gr>
+    <re>111800</re>
+    <nome>EDUARDO LARA CAMARGO</nome>
+    <opm>14.BAEP</opm>
+    <nota_ead/>
+  </discente>
+  <discente>
+    <pt_gr>2. SGT PM</pt_gr>
+    <re>134095</re>
+    <nome>RAFAEL FRANCISCO VERBEL</nome>
+    <opm>14.BAEP</opm>
+    <nota_ead/>
+  </discente>
+</discentes>

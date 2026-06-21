@@ -1,0 +1,181 @@
+{% include 'caixaMensagem.html' %}
+<style>
+  .col-md-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 15px;
+  }
+
+  .form-control {
+    background-color: transparent;
+    border-color: transparent;
+    
+    margin: 0 !important;
+  }
+
+  .table td {
+    padding: 0 !important;
+    text-align: center;
+  }
+
+
+</style>
+
+
+<form class="container__cpi" action="?pagina=eap&metodo=gravarAvaliacao" method="post">
+
+    {% include 'breadcrumb.html' %}
+    
+    <div class="titulo__secao">
+        <p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-clipboard-check" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
+                <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z"/>
+                <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z"/>
+            </svg>
+            Avaliação Profissional
+        </p>
+        <div class="barra__titulo_secao"></div>
+    </div>
+
+    <table class="table mt-3" style="width: 400px;">
+        <tr>
+            <th>Turma</th>
+            <td>{{ turma.turma }} {{turma.inicio|date('d/m/Y')}} a {{turma.termino|date('d/m/Y')}}</td>
+        </tr>
+        <tr>
+            <th>Tipo</th>
+            <td>{{turma.tipo}}</td>
+        </tr>
+        <tr>
+            <th>Período</th>
+            <td>{{turma.inicio|date('d/m/Y')}} a {{turma.termino|date('d/m/Y')}}</td>
+        </tr>
+        <tr>
+            <th>Data</th>
+            <td><input type="date" class="form-control" name="data_ap" value="{{ turma.termino|date('Y-m-d') }}"></td>
+        </tr>
+    </table>
+
+    <div class="row" hidden>
+      <div class="col-md-2">
+        <label class="form-label">ID Turma</label>
+        <input type="text" class="form-control" name="id_turma" value="{{turma.id_turma}}">
+      </div>
+    </div>
+
+    <table class="table table-bordered table-striped mt-3 table-taf">
+      <tr>
+          <th style="width: 10px;">#</th>
+          <th style="width: 45px;">POSTO/GRAD</th>
+          <th style="width: 110px;">RE</th>
+          <th style="width: 600px;">NOME</th>
+          <th style="width: 160px;">ACERTOS</th>
+          <th style="width: 160px;">NOTA</th>
+      </tr>
+
+    {% for discente in discentes %}
+      <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ discente.pt_gr }}  </td>
+          <td>{{ discente.re }}-{{ discente.dg_re }}</td>
+          <td>{{ discente.nome }}</td>
+          <td>
+            <input type="text" name="avaliacao_acertos[{{discente.re}}]" id="avaliacao_acertos[{{discente.re}}]" class="form-control number" maxlength="2" value="{{discente.avaliacao_acertos}}">
+            <input type="hidden" name="id_discente[{{discente.re}}]" id="id_discente[{{discente.re}}]" value="{{discente.id_discente}}" class="form-control" readonly>
+            <input type="hidden" name="re[{{discente.re}}]" id="re[{{discente.re}}]" value="{{discente.re}}" class="form-control" readonly>
+
+          </td>
+
+          <td>
+            <input type="text" name="avaliacao_nota[{{discente.re}}]" id="avaliacao_nota[{{discente.re}}]" class="form-control" value="{{discente.avaliacao_nota}}" tabindex="-1">
+          </td>
+
+
+    {% endfor %}
+    </table>
+
+
+    <button type="submit" class="btn btn-primary">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-floppy" viewBox="0 0 16 16">
+        <path d="M11 2H9v3h2z"/>
+        <path d="M1.5 0h11.586a1.5 1.5 0 0 1 1.06.44l1.415 1.414A1.5 1.5 0 0 1 16 2.914V14.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 14.5v-13A1.5 1.5 0 0 1 1.5 0M1 1.5v13a.5.5 0 0 0 .5.5H2v-4.5A1.5 1.5 0 0 1 3.5 9h9a1.5 1.5 0 0 1 1.5 1.5V15h.5a.5.5 0 0 0 .5-.5V2.914a.5.5 0 0 0-.146-.353l-1.415-1.415A.5.5 0 0 0 13.086 1H13v4.5A1.5 1.5 0 0 1 11.5 7h-7A1.5 1.5 0 0 1 3 5.5V1H1.5a.5.5 0 0 0-.5.5m3 4a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5V1H4zM3 15h10v-4.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5z"/>
+      </svg>
+      Salvar
+    </button>
+
+  </form>
+
+    
+
+
+
+</section>
+
+
+<script>
+  // Impede o submit com Enter e simula Tab
+  document.addEventListener('keydown', function(e) {
+    // seta frente ArrowRight
+    // seta baixo ArrowDown
+    // seta cima ArrowUp
+    // seta esquerda ArrowLeft
+
+    if (e.key === 'Enter'|| e.key === 'ArrowDown') {
+      e.preventDefault(); // evita o envio do formulário
+      const form = e.target.form;
+      const index = Array.prototype.indexOf.call(form, e.target);
+      form.elements[index + 4]?.focus();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault(); // evita o envio do formulário
+      const form = e.target.form;
+      const index = Array.prototype.indexOf.call(form, e.target);
+      form.elements[index - 4]?.focus();
+    }
+  });
+
+  function notaAvaliacao(valor, re) {
+    const pontuacao = parseFloat(valor.replace(',', '.'));
+    let conceito = '';
+    let nota = '';
+
+    if (!isNaN(pontuacao)) {
+
+        const notaMaxima = 6;
+        const totalQuestoes = 20;
+        const valorPorAcerto = notaMaxima / totalQuestoes;
+
+        if ( pontuacao > totalQuestoes ) {
+            acertos = totalQuestoes
+        } else {
+            acertos = pontuacao
+        }
+
+        let nota = acertos * valorPorAcerto;
+
+
+
+        conceito = nota.toFixed(1);
+    }
+
+    // Atualiza campo conceito
+    const conceitoInput = document.getElementById(`avaliacao_nota[${re}]`);
+    if (conceitoInput) {
+      conceitoInput.value = conceito;
+    }
+
+
+  }
+
+  // Aplica o evento aos inputs de pontuação
+  window.addEventListener('DOMContentLoaded', () => {
+    const inputs = document.querySelectorAll('[id^="avaliacao_acertos["]');
+    inputs.forEach(input => {
+      input.addEventListener('blur', () => {
+        const re = input.name.match(/\[(\d+)\]/)[1]; // extrai RE
+        notaAvaliacao(input.value, re);
+      });
+    });
+  });
+</script>

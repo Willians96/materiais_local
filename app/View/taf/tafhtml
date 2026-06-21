@@ -1,0 +1,202 @@
+{% include 'caixaMensagem.html' %}
+
+<section class="container__cpi">
+
+    
+    
+    <div class="titulo__secao">
+        <p>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentcolor"><path d="m216-160-56-56 384-384H440v80h-80v-160h233q16 0 31 6t26 17l120 119q27 27 66 42t84 16v80q-62 0-112.5-19T718-476l-40-42-88 88 90 90-262 151-40-69 172-99-68-68-266 265Zm-96-280v-80h200v80H120ZM40-560v-80h200v80H40Zm739-80q-33 0-57-23.5T698-720q0-33 24-56.5t57-23.5q33 0 57 23.5t24 56.5q0 33-24 56.5T779-640Zm-659-40v-80h200v80H120Z"/></svg>
+            Teste de Aptidão Física - TAF
+        </p>
+        <div class="barra__titulo_secao"></div>
+    </div>
+
+    <br>
+
+    <h5>Em andamento</h5>
+
+    <ul class="lista__link">
+        <a href="?pagina=TAF&metodo=incluirTAF&id=1">
+            <li>
+                EAP Cb/Sd PM II/25 - Cb/Sd PM - 	17 a 19MAR25
+            </li>
+        </a>
+    </ul>
+
+    <br>
+
+
+    <hr>
+
+    <h5>
+        Turmas
+    </h5>
+    
+    <ul class="lista__link">
+        <a href="">
+            <a href="?pagina=TAF&metodo=incluirTAF&id=1">
+                <li>EAP Cb/Sd PM I/25 - Cb/Sd PM - 26 a 28FEV25</li>
+            </a>
+            <li>EAP Cap/Ten PM I/25	 - Cap/Ten PM - 12 a 14MAR25</li>
+            <li>EAP Cb/Sd PM II/25 - Cb/Sd PM - 	17 a 19MAR25</li>
+        </a>
+    </ul>
+    
+
+    <table class="table table-bordered mt-3" hidden>
+
+        <tr>
+            <th>Turma</th>
+            <th>Tipo</th>
+            <th>Período</th>
+            <th>Discentes</th>
+            <th>Ação</th>
+        </tr>
+
+        <tr>
+            <td>EAP Cb/Sd PM I/25</td>
+            <td>Cb/Sd PM</td>
+            <td>26 a 28FEV25</td>
+            <td>21</td>
+            <td>
+                <a href="?pagina=eap&metodo=turma&id=1" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentcolor"><path d="m216-160-56-56 384-384H440v80h-80v-160h233q16 0 31 6t26 17l120 119q27 27 66 42t84 16v80q-62 0-112.5-19T718-476l-40-42-88 88 90 90-262 151-40-69 172-99-68-68-266 265Zm-96-280v-80h200v80H120ZM40-560v-80h200v80H40Zm739-80q-33 0-57-23.5T698-720q0-33 24-56.5t57-23.5q33 0 57 23.5t24 56.5q0 33-24 56.5T779-640Zm-659-40v-80h200v80H120Z"/></svg>
+                    TAF
+                </a>
+            </td>
+        </tr>
+
+        <tr>
+            <td>EAP Cap/Ten PM I/25</td>
+            <td>Cap/Ten PM</td>
+            <td>12 a 14MAR25</td>
+            <td>20</td>
+            <td>
+                <a href="?pagina=eap&metodo=turma&id=2" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentcolor"><path d="m216-160-56-56 384-384H440v80h-80v-160h233q16 0 31 6t26 17l120 119q27 27 66 42t84 16v80q-62 0-112.5-19T718-476l-40-42-88 88 90 90-262 151-40-69 172-99-68-68-266 265Zm-96-280v-80h200v80H120ZM40-560v-80h200v80H40Zm739-80q-33 0-57-23.5T698-720q0-33 24-56.5t57-23.5q33 0 57 23.5t24 56.5q0 33-24 56.5T779-640Zm-659-40v-80h200v80H120Z"/></svg>
+                    TAF
+                </a>
+            </td>
+        </tr>
+
+        <tr>
+            <td>EAP Cb/Sd PM II/25</td>
+            <td>Cb/Sd PM</td>
+            <td>17 a 19MAR25</td>
+            <td>22</td>
+            <td>
+                <a href="?pagina=eap&metodo=turma&id=3" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentcolor"><path d="m216-160-56-56 384-384H440v80h-80v-160h233q16 0 31 6t26 17l120 119q27 27 66 42t84 16v80q-62 0-112.5-19T718-476l-40-42-88 88 90 90-262 151-40-69 172-99-68-68-266 265Zm-96-280v-80h200v80H120ZM40-560v-80h200v80H40Zm739-80q-33 0-57-23.5T698-720q0-33 24-56.5t57-23.5q33 0 57 23.5t24 56.5q0 33-24 56.5T779-640Zm-659-40v-80h200v80H120Z"/></svg>
+                    TAF
+                </a>
+                      
+            </td>
+        </tr>
+
+    </table>
+
+
+    <!-- Modal Remover -->
+    <div class="modal fade" id="modalRemoverTurma" tabindex="-1" aria-labelledby="modalRemoverTurmaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="?pagina=eap&metodo=removerTurma" method="post">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modalRemoverTurmaLabel">Remover turma</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Confirma a remoção da turma:</p>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Turma</th>
+                                    <th>Tipo</th>
+                                    <th>Período</th>
+                                </tr>
+                                <tr>
+                                    <td id="excluir-turma"></td>
+                                    <td id="excluir-tipo"></td>
+                                    <td id="excluir-periodo"></td>
+                                </tr>
+                            </table>
+                            <div class="row">
+                                <input type="text" class="form-control" value="" name="id" id="excluir-id">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Confirmar</button>
+                        </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+
+
+
+     <!-- Modal Editar -->
+     <div class="modal fade" id="modalEditarTurma" tabindex="-1" aria-labelledby="modalEditarTurmaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="?pagina=eap&metodo=editarTurma" method="post">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modalEditarTurmaLabel">Editar turma</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <label for="form-label">ID</label>
+                                    <input type="text" class="form-control" value="" name="id" id="editar-id" readonly>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label for="Turma" class="form-label">Turma</label>
+                                    <input type="text" class="form-control" id="editar-turma" name="turma">
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="Turma" class="form-label">Tipo</label>
+                                    <select type="text" class="form-select" id="editar-tipo" name="turma">
+                                        <option value="Cb/Sd PM">Cb/Sd PM</option>
+                                        <option value="Subten/Sgt PM">Subten/Sgt PM</option>
+                                        <option value="Cap/Ten PM">Cap/Ten PM</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="data-inicio" class="form-label">Data início</label>
+                                    <input type="date" class="form-control" id="editar-inicio" name="inicio">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="data-inicio" class="form-label">Data término</label>
+                                    <input type="date" class="form-control" id="editar-termino" name="termino">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Confirmar</button>
+                        </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+
+
+   
+
+
+     
+
+
+
+
+
+</section>

@@ -1,0 +1,339 @@
+
+<style>
+
+    .container__turma_atual {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+
+    .link__blue, .link__blue:active, .link__blue:visited  {
+        color: #0459A9 !important;
+    }
+
+    .link__blue:hover {
+        text-decoration: underline !important;
+    }
+
+
+    .linha__turmas {
+        height: 80px;
+        font-size: 16px;
+    }
+
+    .linha__turmas:hover {
+        text-decoration: underline;
+        color: #0459A9;
+    }
+
+</style>
+
+{% include 'caixaMensagem.html' %}
+
+
+<h3 style="padding: 20px;">Estágio de Atualização Profissional - 2025</h3>
+
+{% if cod_perfil <= 4 or cod_perfil == 99 %}
+
+<div class="dashboard__home">
+
+
+    <div class="dashboard_home__card">
+
+        <div class="dashboard_home__item">
+
+            <div class="dashboard_home_item__num">
+                <span>{{ turmas_eap }}</span>
+            </div>
+
+            <div class="dashboard_home_item__label">
+                Turmas Concluídas
+            </div>
+
+            <div class="dashboard_home_item__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="70" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="dashboard_home__item">
+
+            <div class="dashboard_home_item__num">
+                <span>{{ concluiram_eap }}</span>
+            </div>
+
+            <div class="dashboard_home_item__label">
+                Frequentaram o EAP
+            </div>
+
+            <div class="dashboard_home_item__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+                <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0"/>
+                <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
+            </svg>
+            </div>
+        </div>
+
+
+        <div class="dashboard_home__item">
+
+            <div class="dashboard_home_item__num">
+                <span>{{ conceito_mb }}</span>
+            </div>
+
+            <div class="dashboard_home_item__label">
+                Conceito MB TAF
+            </div>
+
+            <div class="dashboard_home_item__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="70" fill="currentColor" class="bi bi-person-arms-up" viewBox="0 0 16 16">
+                    <path d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+                    <path d="m5.93 6.704-.846 8.451a.768.768 0 0 0 1.523.203l.81-4.865a.59.59 0 0 1 1.165 0l.81 4.865a.768.768 0 0 0 1.523-.203l-.845-8.451A1.5 1.5 0 0 1 10.5 5.5L13 2.284a.796.796 0 0 0-1.239-.998L9.634 3.84a.7.7 0 0 1-.33.235c-.23.074-.665.176-1.304.176-.64 0-1.074-.102-1.305-.176a.7.7 0 0 1-.329-.235L4.239 1.286a.796.796 0 0 0-1.24.998l2.5 3.216c.317.316.475.758.43 1.204Z"/>
+                </svg>
+            </div>
+        </div>
+
+        
+        <div class="dashboard_home__item">
+
+            <div class="dashboard_home_item__num">
+                <span>{{ reprovados_taf }}</span>
+            </div>
+
+            <div class="dashboard_home_item__label">
+                Reprovados TAF
+            </div>
+
+            <div class="dashboard_home_item__icon">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                    width="60" fill="currentColor" viewBox="0 0 112.000000 131.000000"
+                    preserveAspectRatio="xMidYMid meet">
+
+                    <g transform="translate(0.000000,131.000000) scale(0.100000,-0.100000)" stroke="none">
+                        <path d="M783 1245 c-140 -86 -90 -302 76 -322 178 -21 264 212 118 321 -19
+                        14 -47 21 -90 24 -53 2 -68 -1 -104 -23z"/>
+                        <path d="M410 1207 c-41 -13 -103 -38 -138 -56 -71 -39 -185 -139 -208 -183
+                        -29 -56 -13 -160 29 -185 7 -4 57 -72 110 -150 l97 -142 0 -196 c0 -207 6
+                        -242 49 -265 25 -13 77 -13 102 0 42 23 49 58 49 260 l0 190 -30 0 c-19 0 -40
+                        9 -55 25 -23 22 -25 32 -25 114 0 84 -2 94 -31 141 -31 50 -31 51 -13 71 11
+                        12 31 27 46 35 19 10 29 25 34 52 11 58 64 205 82 226 42 46 121 35 143 -21
+                        11 -27 6 -47 -39 -172 -4 -10 9 -6 39 10 l44 25 -3 84 c-2 47 -6 93 -8 102 -3
+                        9 -24 26 -48 37 -55 27 -129 26 -226 -2z"/>
+                        <path d="M522 1137 c-63 -67 -146 -511 -113 -600 14 -35 55 -52 92 -37 36 15
+                        39 24 50 167 11 143 28 230 63 329 14 39 26 85 26 102 0 58 -77 83 -118 39z"/>
+                    </g>
+                </svg>
+
+            </div>
+        </div>
+
+
+        <div class="dashboard_home__item">
+
+            <div class="dashboard_home_item__num">
+                <span>{{ lesionados_taf }}</span>
+            </div>
+
+            <div class="dashboard_home_item__label">
+                Lesionados TAF
+            </div>
+
+            <div class="dashboard_home_item__icon">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                    height="78" viewBox="0 0 512.000000 512.000000"
+                    preserveAspectRatio="xMidYMid meet">
+
+                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                    fill="currentColor" stroke="none">
+                    <path d="M1453 4865 c-223 -60 -363 -273 -325 -495 32 -189 175 -330 367 -363
+                    283 -48 546 215 498 498 -45 259 -295 426 -540 360z"/>
+                    <path d="M1556 3805 c-269 -129 -502 -235 -516 -235 -15 0 -164 60 -331 134
+                    -167 74 -316 137 -330 141 -38 9 -95 -18 -119 -57 -25 -39 -23 -112 3 -151 11
+                    -17 139 -89 384 -215 202 -105 384 -198 404 -206 35 -15 40 -13 333 84 l297
+                    98 117 -130 c276 -307 535 -663 712 -977 l46 -81 77 95 c82 100 215 218 310
+                    276 31 19 57 39 57 46 0 6 -20 60 -44 120 -149 370 -321 679 -542 973 -201
+                    267 -256 320 -336 320 -23 0 -189 -75 -522 -235z"/>
+                    <path d="M2460 3923 c38 -47 104 -135 146 -194 75 -106 78 -108 123 -115 25
+                    -4 56 -11 69 -15 12 -5 119 -91 238 -191 118 -101 229 -189 246 -196 43 -18
+                    89 -8 124 29 24 25 29 39 29 80 l0 49 -276 275 -275 276 -235 44 c-128 25
+                    -239 45 -246 45 -7 0 19 -39 57 -87z"/>
+                    <path d="M665 2975 c-46 -45 -37 -66 111 -263 96 -129 144 -184 162 -189 42
+                    -10 74 9 107 64 16 29 32 53 35 53 3 0 45 -68 94 -151 49 -82 97 -154 107
+                    -159 50 -27 119 12 119 67 -1 18 -49 109 -133 248 -104 171 -139 222 -160 229
+                    -44 16 -77 -3 -114 -64 -18 -30 -36 -56 -40 -57 -5 -1 -46 50 -93 113 -47 64
+                    -93 120 -102 125 -30 16 -68 10 -93 -16z"/>
+                    <path d="M1385 2775 c-31 -30 -31 -46 0 -165 26 -104 46 -130 97 -130 35 0 78
+                    40 78 72 -1 54 -50 213 -71 231 -31 25 -75 22 -104 -8z"/>
+                    <path d="M3560 2635 c-8 -2 -49 -9 -90 -15 -349 -57 -676 -294 -846 -614 -102
+                    -191 -138 -342 -138 -566 0 -113 4 -178 18 -240 104 -481 475 -845 961 -941
+                    103 -21 349 -18 455 5 481 104 845 475 941 961 8 40 14 132 14 215 0 157 -12
+                    236 -56 372 -129 399 -465 705 -879 799 -78 18 -338 35 -380 24z m415 -380
+                    l25 -24 0 -236 0 -235 235 0 236 0 24 -25 25 -24 0 -271 0 -271 -25 -24 -24
+                    -25 -236 0 -235 0 0 -235 0 -236 -25 -24 -24 -25 -271 0 -271 0 -24 25 -25 24
+                    0 236 0 235 -235 0 -236 0 -24 25 -25 24 0 271 0 271 25 24 24 25 236 0 235 0
+                    0 235 0 236 25 24 24 25 271 0 271 0 24 -25z"/>
+                    <path d="M3520 1885 l0 -236 -25 -24 -24 -25 -236 0 -235 0 0 -160 0 -160 235
+                    0 236 0 24 -25 25 -24 0 -236 0 -235 160 0 160 0 0 235 0 236 25 24 24 25 236
+                    0 235 0 0 160 0 160 -235 0 -236 0 -24 25 -25 24 0 236 0 235 -160 0 -160 0 0
+                    -235z"/>
+                    <path d="M1783 2392 c-174 -132 -276 -217 -284 -234 -10 -24 8 -99 145 -613
+                    86 -323 163 -597 172 -610 18 -28 72 -55 108 -55 67 0 130 51 142 116 4 23
+                    -22 171 -87 483 -74 360 -90 455 -82 474 7 15 80 63 217 141 113 64 206 119
+                    206 122 0 19 -239 376 -255 381 -5 1 -132 -91 -282 -205z"/>
+                    <path d="M465 2495 c-16 -16 -25 -35 -25 -57 0 -29 20 -53 183 -215 156 -156
+                    187 -183 213 -183 49 0 70 24 99 110 15 44 29 80 31 80 3 0 41 -25 87 -55 51
+                    -34 92 -55 110 -55 55 0 94 69 68 119 -15 28 -283 201 -312 201 -43 0 -67 -27
+                    -90 -100 l-23 -70 -126 125 c-109 108 -131 125 -159 125 -21 0 -41 -9 -56 -25z"/>
+                    <path d="M1174 2026 c-45 -30 -84 -62 -88 -71 -20 -53 18 -115 70 -115 31 0
+                    179 92 194 121 27 50 -12 119 -67 119 -17 0 -59 -21 -109 -54z"/>
+                    <path d="M1311 1863 c-22 -19 -71 -150 -71 -190 0 -58 83 -93 129 -55 22 18
+                    71 149 71 189 0 58 -83 93 -129 56z"/>
+                    </g>
+                </svg>
+
+            </div>
+        </div>
+
+
+
+
+        <div class="dashboard_home__item">
+
+            <div class="dashboard_home_item__num">
+                <span>{{ usuarios }}</span>
+            </div>
+
+            <div class="dashboard_home_item__label">
+                Usuários sistema
+            </div>
+
+            <div class="dashboard_home_item__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="68" fill="currentColor" class="bi bi-person-gear" viewBox="0 0 16 16">
+                    <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1zm3.63-4.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
+                </svg>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container__turma_atual">
+        <div class="turma__atual">
+            <table class="table table-bordered">
+                <tr>
+                    <th style="border-left: 7px solid #DEE2E6;">Turma Atual</th>
+                </tr>
+                    {% if turma_atual.tipo == 'Cb/Sd PM' %}
+                        {% set bd_color = '#0459A9' %}
+                    {% elseif turma_atual.tipo == 'Subten/Sgt PM' %}
+                        {% set bd_color = '#D65532' %}
+                    {% else %}
+                        {% set bd_color = '#ECB003' %}
+                    {% endif %}
+
+                    <td style="border-left: 7px solid {{ bd_color }};" class="linha__turmas">
+                        <a href="?pagina=eap&metodo=turma&id={{ turma_atual.id_turma }}">
+                            {{ turma_atual.turma }} {{ turma_atual.inicio|date('d/m/Y') }} à {{ turma_atual.termino|date('d/m/Y') }} {{ turma_atual.tipo }}
+                        </a>
+                    </td>
+            </table>
+        </div>
+        <div class="turma__anterior">
+            <table class="table table-bordered">
+                <tr>
+                    <th style="border-left: 7px solid #DEE2E6;">Turma Anterior</th>
+                </tr>
+                <tr>
+                    {% if turma_anterior.tipo == 'Cb/Sd PM' %}
+                        {% set bd_color = '#0459A9' %}
+                    {% elseif turma_anterior.tipo == 'Subten/Sgt PM' %}
+                        {% set bd_color = '#D65532' %}
+                    {% else %}
+                        {% set bd_color = '#ECB003' %}
+                    {% endif %}
+
+                    <td style="border-left: 7px solid {{ bd_color }};" class="linha__turmas">
+                        <a href="?pagina=eap&metodo=turma&id={{ turma_anterior.id_turma }}">
+                            {{ turma_anterior.turma }} {{ turma_anterior.inicio|date('d/m/Y') }} à {{ turma_anterior.termino|date('d/m/Y') }} {{ turma_anterior.tipo }}
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="turma__proxima">
+            <table class="table table-bordered">
+                <tr>
+                    <th style="border-left: 7px solid #DEE2E6;">Próxima Turma</th>
+                </tr>
+                <tr>
+                    {% if turma_proxima.tipo == 'Cb/Sd PM' %}
+                        {% set bd_color = '#0459A9' %}
+                    {% elseif turma_proxima.tipo == 'Subten/Sgt PM' %}
+                        {% set bd_color = '#D65532' %}
+                    {% else %}
+                        {% set bd_color = '#ECB003' %}
+                    {% endif %}
+                    
+                    {% if turma_proxima.turma %}                        
+                    <td style="border-left: 7px solid {{ bd_color }};" class="linha__turmas"> 
+                            <a href="?pagina=eap&metodo=turma&id={{ turma_proxima.id_turma }}">
+                                {{ turma_proxima.turma }} {{ turma_proxima.inicio|date('d/m/Y') }} à {{ turma_proxima.termino|date('d/m/Y') }} {{ turma_proxima.tipo }}
+                            </a>
+                        {% else %}
+                    <td style="border-left: 7px solid #DEE2E6;" class="linha__turmas">                         
+                            <a href="?pagina=eap&metodo=turmas" class="link__blue">Cadastrar próxima turma</a>
+                        {% endif %}
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="row">
+            <a href="?pagina=eap&metodo=turmas" class="link__blue">
+                Todas as turmas
+            </a>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="container__meu_eap">
+
+        </div>
+
+    </div>
+
+
+    
+    <!--<div class="container__table">
+    
+        <table class="table table-bordered">
+            <tr>
+                <tr>
+                    <th>Turma</td>
+                    <th>Discentes</th>
+                </tr>
+            </tr>
+
+            {% for turma in turmas %}
+                <tr>
+                    <td>
+                        <a href="?pagina=eap&metodo=turma&id={{ turma.id_turma }}">                        
+                            {{ loop.index }} - {{ turma.turma }} &nbsp;&nbsp;  {{ turma.inicio|date('d/m/Y') }} a {{ turma.termino|date('d/m/Y') }}
+                        </a>                        
+                    </td>
+                    <td>{{ turma.total_discentes }}</td>
+                </tr>
+            {% endfor %}
+
+
+        </table>
+    
+    </div> -->
+    
+
+</div>
+
+{% endif %}

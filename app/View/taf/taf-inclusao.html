@@ -1,0 +1,1458 @@
+{% include 'caixaMensagem.html' %}
+
+<style>
+  .col-md-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 15px;
+  }
+
+  /*.table-taf .form-control  {*/
+  .form-control  {
+    background-color: transparent;
+    border-color: transparent;
+    
+    margin: 0 !important;
+  }
+
+  .table__taf td {
+    padding: 0 !important;
+    text-align: center;
+    font-size: 14px;
+  }
+
+
+</style>
+
+
+<style>
+
+    .container__tables {
+        display: flex;
+        gap: 30px;
+    }
+
+
+    .form-check-input:checked {
+        background-color: #1975C5;
+        border-color: #1975c5;
+    }
+
+    .table__cpi {
+        border-collapse: separate;
+        border-spacing: 0; 
+        border-radius: 10px; 
+        overflow: hidden;
+        border: 1px solid #DEE2E6;
+    }
+
+
+    .table__cpi tr:nth-last-child(1) {
+       border: 0px solid #fff;
+    }
+
+    .table__cpi .btn {
+        border: 1px solid #DEE2E6;
+        padding: 5px 25px;
+    }
+
+    .table__cpi .btn:hover {
+        background-color: #f2f3f3;
+    }
+
+    .btn__primary {
+        color: #fff;
+        background-color: #1975c5;
+    }
+
+    .btn__primary:hover {
+        color: #fff;
+        background-color: #0067c0 !important;
+    }
+
+    .td__row_2 {
+        padding-top: 12px !important;
+    }
+
+    .td__row_2 p:nth-child(1) {
+        line-height: 10px;
+        margin-top: 14px;
+        font-weight: 500;
+    }
+
+    .td__row_2 p:nth-child(2) {
+        line-height: 0;
+        color: #6a6b6e;
+        font-size: 0.9em;
+        margin-top: 8px;
+    }
+
+    .td__row_2 a p {
+    }
+    
+    .td__row_2 a p:hover {
+        color: #1975C5;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .td__icon {
+        color: #1975c5 !important;
+        text-align: right;
+    }
+
+    .td__right {
+        text-align: right;
+    }
+        
+
+
+</style>
+
+
+<form class="container__cpi" action="?pagina=taf&metodo=gravarTAF" method="post">
+
+    {% include 'breadcrumb.html' %}
+    
+    <div class="titulo__secao">
+        <p>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M440-42v-80q-125-14-214.5-103.5T122-440H42v-80h80q14-125 103.5-214.5T440-838v-80h80v80q125 14 214.5 103.5T838-520h80v80h-80q-14 125-103.5 214.5T520-122v80h-80Zm40-158q116 0 198-82t82-198q0-116-82-198t-198-82q-116 0-198 82t-82 198q0 116 82 198t198 82Zm0-120q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm0-80q33 0 56.5-23.5T560-480q0-33-23.5-56.5T480-560q-33 0-56.5 23.5T400-480q0 33 23.5 56.5T480-400Zm0-80Z"/></svg>                 
+            Teste de Aptidão de Física - TAF
+        </p>
+        <div class="barra__titulo_secao"></div>
+    </div>
+
+    <!-- Table Turma -->
+    <table class="table table__cpi mt-3" style="width: 400px">
+      <tr>
+          <td></td>
+          <td class="td__row_2">
+              <h5>{{ turma.turma }} {{ turma.tipo }}</h5>
+              <p>Turma</p>
+          </td>
+      </tr>
+      <tr>
+          <td class="td__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="22" fill="currentColor" class="bi bi-calendar-week" viewBox="0 0 16 16">
+                  <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+                  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+              </svg>
+          </td>
+          <td class="td__row_2">
+              <p>{{turma.inicio|date('d/m/Y')}} a {{turma.termino|date('d/m/Y')}}</p>
+              <p>Período</p>
+          </td>
+      </tr>
+      <tr>
+          <td class="td__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 -960 960 960" fill="currentcolor"><path d="M0-240v-63q0-43 44-70t116-27q13 0 25 .5t23 2.5q-14 21-21 44t-7 48v65H0Zm240 0v-65q0-32 17.5-58.5T307-410q32-20 76.5-30t96.5-10q53 0 97.5 10t76.5 30q32 20 49 46.5t17 58.5v65H240Zm540 0v-65q0-26-6.5-49T754-397q11-2 22.5-2.5t23.5-.5q72 0 116 26.5t44 70.5v63H780Zm-455-80h311q-10-20-55.5-35T480-370q-55 0-100.5 15T325-320ZM160-440q-33 0-56.5-23.5T80-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T160-440Zm640 0q-33 0-56.5-23.5T720-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T800-440Zm-320-40q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-600q0 50-34.5 85T480-480Zm0-80q17 0 28.5-11.5T520-600q0-17-11.5-28.5T480-640q-17 0-28.5 11.5T440-600q0 17 11.5 28.5T480-560Zm1 240Zm-1-280Z"/></svg>
+          </td>
+          <td class="td__row_2">
+              <p>{{ turma.total_discentes}}</p>
+              <p>Discentes</p>
+          </td>
+      </tr>
+      <tr>
+        <td class="td__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="22" fill="currentColor" class="bi bi-calendar-week" viewBox="0 0 16 16">
+                <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+            </svg>
+        </td>
+        <td  class="td__row_2">
+          <p>
+            Data do TAF
+            <input type="date" class="form-control" name="data_taf" style="width: 150px;" value="{{ turma.inicio|date_modify('+1 day')|date('Y-m-d') }}">
+          </p>
+        </td>
+      </tr>            
+  </table>
+
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSITAF">
+    Upload planilha SITAF
+  </button>
+
+  
+
+
+
+<!--
+    <table class="table mt-3" style="width: 400px;">
+        <tr>
+            <th>Turma</th>
+            <td>{{ turma.turma }} {{turma.inicio|date('d/m/Y')}} a {{turma.termino|date('d/m/Y')}}</td>
+        </tr>
+        <tr>
+            <th>Tipo</th>
+            <td>{{turma.tipo}}</td>
+        </tr>
+        <tr>
+            <th>Período</th>
+            <td>{{turma.inicio|date('d/m/Y')}} a {{turma.termino|date('d/m/Y')}}</td>
+        </tr>
+        <tr>
+            <th>Data</th>
+            <td><input type="date" class="form-control" name="data_taf" value="{{ turma.inicio|date_modify('+1 day')|date('Y-m-d') }}"></td>
+        </tr>
+    </table>  -->
+
+    <div class="row" hidden>
+      <div class="col-md-2">
+        <label class="form-label">ID Turma</label>
+        <input type="text" class="form-control" name="id_turma" value="{{turma.id_turma}}">
+      </div>
+    </div>
+
+    <table class="table table-bordered table-striped mt-3 table__taf">
+      <tr>
+          <th style="width: 10px;">#</th>
+          <th style="width: 45px;">POSTO/GRAD</th>
+          <th style="width: 110px;">RE</th>
+          <th style="width: 600px;">NOME</th>
+
+          <th>OPM</th>
+          <th>NASC</th>
+          <th class="td__vertical">IDADE</th>
+          <th class="td__vertical">SEXO</th>
+
+          <th class="td__vertical">INSERÇÃO</th>
+
+          <th class="td__vertical">BARRA</th>
+          <th class="td__vertical">PONTOS</th>
+          <th class="td__vertical">ISOMETRIA</th>
+          <th class="td__vertical">PONTOS</th>
+          <th class="td__vertical">APOIO</th>
+          <th class="td__vertical">PONTOS</th>
+          <th class="td__vertical">ABDM</th>
+          <th class="td__vertical">PONTOS</th>
+          <th class="td__vertical">50 M</th>
+          <th class="td__vertical">PONTOS</th>
+          <th class="td__vertical">2400 M</th>
+          <th class="td__vertical">PONTOS</th>
+
+          <th style="width: 120px;">PONTUAÇÃO</th>
+          <th style="width: 140px;">CONCEITO</th>
+
+          <th>LESÃO</th>
+      </tr>
+
+    {% for discente in discentes %}
+      <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ discente.pt_gr }}  </td>
+          <td>{{ discente.re }}-{{ discente.dg_re }}</td>
+          <td>{{ discente.nome }}</td>
+
+          <td>{{ discente.opm }}</td>
+          <td>{{ discente.data_nascimento|date('d/m/Y') }}</td>
+
+          <td>
+            {% set inicio = turma.inicio|date('Y-m-d') %}
+            {% set nascimento = discente.data_nascimento|date('Y-m-d') %}
+            {% set idade = date(inicio).diff(date(nascimento)).y %}
+            <!-- <input type="text" class="form-control number" value="{{ idade }}"> -->
+            {{ idade }}
+          </td>
+
+          <td>
+            {{ discente.sexo }}
+          </td>
+
+          <td>
+            <button type="button" class="btn btn__primary" style="padding: 0px 3px;" onclick="inserirTAF('{{ discente.re }}')" data-bs-toggle="modal" data-bs-target="#modalTAF">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
+              </svg>
+            </button>
+          </td>
+
+
+
+          <td>
+            {% if discente.sexo == 'M' %}
+              {{ discente.barra }}
+            {% else %}
+              ---
+            {% endif %}
+          </td>
+
+          <td>
+            {% if discente.sexo == 'M' %}
+              {{ discente.barra_pontos }}
+            {% else %}
+              ---
+            {% endif %}
+          </td>
+
+          <td>
+            {% if discente.sexo == 'F' %}
+              {{ discente.isometria }}
+            {% else %}
+              ---
+            {% endif %}
+          </td>
+
+          <td>
+            {% if discente.sexo == 'F' %}
+              {{ discente.isometria_pontos }}
+            {% else %}
+              ---
+            {% endif %}
+          </td>
+
+          <td>
+            {{ discente.apoio_frente }}
+          </td>
+
+          <td>
+            {{ discente.apoio_frente_pontos }}
+          </td>
+
+          <td>
+            {{ discente.abdominal }}
+          </td>
+
+          <td>
+            {{ discente.abdominal_pontos }}
+          </td>
+
+          <td>
+            {{ discente.corrida_50 }}
+          </td>
+
+          <td>
+            {{ discente.corrida_50_pontos }}
+          </td>
+
+          <td>
+            {{ discente.corrida_2400 }}
+          </td>
+
+          <td>
+              {{ discente.corrida_2400_pontos }}
+
+          </td>
+
+
+
+          <td>
+            {{discente.pontuacao_taf}}
+            <input type="hidden" name="id_discente[{{discente.re}}]" id="id_discente[{{discente.re}}]" value="{{discente.id_discente}}" class="form-control" readonly>
+            <input type="hidden" name="re[{{discente.re}}]" id="re[{{discente.re}}]" value="{{discente.re}}" class="form-control" readonly>
+
+          </td>
+
+          <td
+            {% if discente.conceito_taf == 'Reprovado' %}
+              style="background-color: rgb(250, 188, 188);"
+            {% endif %}
+          >
+            <input type="text" name="conceito_taf[{{discente.re}}]" id="conceito_taf[{{discente.re}}]" class="form-control" value="{{discente.conceito_taf}}" tabindex="-1">
+          </td>
+          
+          
+            {% if discente.lesao_taf == 0 %}
+              <td>NIHIL</td>
+            {% elseif discente.lesao_taf == '50m' %}
+              <td style="background-color: rgb(250, 188, 188);">Corrida 50m</td>
+            {% elseif discente.lesao_taf == '2400m' %}
+              <td style="background-color: rgb(250, 188, 188);">Corrida 2400m</td>
+            {% elseif discente.lesao_taf == 'isometria' %}
+              <td style="background-color: rgb(250, 188, 188);">Isometria</td>
+            {% elseif discente.lesao_taf == 'barra' %}
+              <td style="background-color: rgb(250, 188, 188);">Barra</td>
+            {% elseif discente.lesao_taf == 'abdominal' %}
+              <td style="background-color: rgb(250, 188, 188);">Abdominal</td>
+            {% elseif discente.lesao_taf == 'apoio' %}
+              <td style="background-color: rgb(250, 188, 188);">Apoio de Frente</td>
+            {% else %}
+              <td></td>
+            {% endif %}
+          
+    {% endfor %}
+    </table>
+
+
+    <button type="submit" class="btn btn__primary">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-floppy" viewBox="0 0 16 16">
+        <path d="M11 2H9v3h2z"/>
+        <path d="M1.5 0h11.586a1.5 1.5 0 0 1 1.06.44l1.415 1.414A1.5 1.5 0 0 1 16 2.914V14.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 14.5v-13A1.5 1.5 0 0 1 1.5 0M1 1.5v13a.5.5 0 0 0 .5.5H2v-4.5A1.5 1.5 0 0 1 3.5 9h9a1.5 1.5 0 0 1 1.5 1.5V15h.5a.5.5 0 0 0 .5-.5V2.914a.5.5 0 0 0-.146-.353l-1.415-1.415A.5.5 0 0 0 13.086 1H13v4.5A1.5 1.5 0 0 1 11.5 7h-7A1.5 1.5 0 0 1 3 5.5V1H1.5a.5.5 0 0 0-.5.5m3 4a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5V1H4zM3 15h10v-4.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5z"/>
+      </svg>
+      Salvar
+    </button>
+
+  </form>
+
+
+
+  <!-- Modal TAF-->
+        <div class="modal fade" id="modalTAF" tabindex="-1" aria-labelledby="modalTAFLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <form action="?pagina=taf&metodo=gravarTAF" method="post">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modalTAFLabel">Inserir TAF</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Policial:</p>
+                                <table class="table table-bordered table-striped">
+                                    <tr>
+                                        <th style="width: 100px;">Posto/Grad.</th>
+                                        <th style="width: 70px;">RE</th>
+                                        <th style="overflow: hidden;">Nome</th>
+                                        <th>OPM</th>
+                                        <th>Sexo</th>
+                                        <th>Idade</th>
+                                        <th>Tabela</th>
+                                    </tr>
+                                    <tr>
+                                        <td id="modal-ptgr"></td>
+                                        <td id="modal-re"></td>
+                                        <td id="modal-nome"></td>
+                                        <td id="modal-opm"></td>
+                                        <td><input class="form-control" type="text" id="modal-sexo" style="width: 40px;" readonly></td>
+                                        <td id="modal-idade"></td>
+                                        <td id="modal-tabela"></td>
+
+                                    </tr>
+                                </table>
+
+
+                                <div class="row" hidden>
+                                    <div class="col-md-6">
+                                        <label for="" class="form-label">ID Turma</label>
+                                        <input type="text" class="form-control" value="" name="id_turma" id="modal-idturma">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="" class="form-label">ID Discente</label>
+                                        <input type="text" class="form-control" value="" name="id_discente" id="modal-iddisscente">                                        
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="" class="form-label">Idade TAF</label>
+                                        <input type="text" class="form-control" value="" name="idade_taf" id="idade_taf">                                        
+                                    </div>                                    
+                                </div>
+
+
+                                <table class="table table-bordered text-center">
+                                  <thead>
+                                    <tr>
+                                      <th></th>
+                                      <th class="td_barra">Barra</th>
+                                      <th class="td_isometria">Isometria</th>
+                                      <th>Abdominal</th>
+                                      <th>Apoio Frente</th>
+                                      <th>2400m</th>
+                                      <th>50m</th>
+                                      <th>Natação</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <th>Valor</th>
+                                      <td class="td_barra">
+                                        <input type="text" maxlength="3" class="form-control number td_barra" name="barra" id="barra" onblur="calculoBarra()">
+                                      </td>
+                                      <td class="td_isometria">
+                                        <input type="time" class="form-control" name="isometria" id="isometria" onblur="calculoIsometria()">
+                                      </td>
+                                      <td>
+                                        <input type="text" maxlength="3" class="form-control number" name="abdominal" id="abdominal" onblur="calculoAbdominal()">
+                                      </td>
+                                      <td>
+                                        <input type="text" maxlength="3" class="form-control number" name="apoio" id="apoio" onblur="calculoApoio()">
+                                      </td>
+                                      <td>
+                                        <input type="time" class="form-control" name="corrida_2400" id="corrida_2400" onblur="calculo2400()">
+                                      </td>
+                                      <td>
+                                        <input type="text" class="form-control decimal" name="corrida_50" id="corrida_50" onblur="calculo50()">
+                                      </td>
+                                      <td>
+                                        <input type="time" class="form-control" name="natacao" id="natacao">
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <th>Pontos</th>
+                                      <td class="td_barra">
+                                        <input type="text" class="form-control number" name="barra_pontos" id="barra_pontos">
+                                      </td>
+                                      <td class="td_isometria">
+                                        <input type="text" class="form-control number" name="isometria_pontos" id="isometria_pontos">
+                                      </td>
+                                      <td>
+                                        <input type="text" class="form-control number" name="abdominal_pontos" id="abdominal_pontos">
+                                      </td>
+                                      <td>
+                                        <input type="text" class="form-control number" name="apoio_pontos" id="apoio_pontos">
+                                      </td>
+                                      <td>
+                                        <input type="text" class="form-control number" name="corrida_2400_pontos" id="corrida_2400_pontos">
+                                      </td>
+                                      <td>
+                                        <input type="text" class="form-control number" name="corrida_50_pontos" id="corrida_50_pontos">
+                                      </td>
+                                      <td>
+                                        <input type="text" class="form-control number" name="natacao_pontos" id="natacao_pontos">
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+
+                                
+                                <div style="display: flex; gap: 10px; justify-content: right;">
+                                  <button type="button" class="btn btn__primary" style="display: flex; align-items: center; gap: 6px;" onclick="calcularTAF()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">
+                                      <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                                      <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+                                    </svg>
+                                    Calcular
+                                  </button>
+
+
+                                  <button type="button" class="btn btn-danger" style="display: flex; align-items: center; gap: 6px;" onclick="limpaCamposModal()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M440-520h80v-280q0-17-11.5-28.5T480-840q-17 0-28.5 11.5T440-800v280ZM200-360h560v-80H200v80Zm-58 240h98v-80q0-17 11.5-28.5T280-240q17 0 28.5 11.5T320-200v80h120v-80q0-17 11.5-28.5T480-240q17 0 28.5 11.5T520-200v80h120v-80q0-17 11.5-28.5T680-240q17 0 28.5 11.5T720-200v80h98l-40-160H182l-40 160Zm676 80H142q-39 0-63-31t-14-69l55-220v-80q0-33 23.5-56.5T200-520h160v-280q0-50 35-85t85-35q50 0 85 35t35 85v280h160q33 0 56.5 23.5T840-440v80l55 220q13 38-11.5 69T818-40Zm-58-400H200h560Zm-240-80h-80 80Z"/></svg>
+                                    Limpar
+                                  </button>
+                                </div>
+
+                                
+
+                                <hr>
+
+
+                                <div class="row">
+
+                                  <!-- <div class="col-md-3">
+                                    <label for="" class="form-label"><strong>Pontuação</strong></label>
+                                    <input type="text" class="form-control" name="pontuacao" id="pontuacao">
+                                  </div>
+
+
+                                  <div class="col-md-3">
+                                    <label for=""><strong>Resultado</strong></label>
+                                    <input type="text" class="form-control" name="resultado" id="resultado">
+                                  </div> -->
+
+                                  
+                                  <div class="col-md-6">
+
+                                    <div class="alert alert-danger" role="alert" style="display: flex;">
+                                      <div class="col-md-2">
+                                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                            width="48" height="48" viewBox="0 0 512.000000 512.000000"
+                                            preserveAspectRatio="xMidYMid meet">
+
+                                            <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                                            fill="currentColor" stroke="none">
+                                            <path d="M1453 4865 c-223 -60 -363 -273 -325 -495 32 -189 175 -330 367 -363
+                                            283 -48 546 215 498 498 -45 259 -295 426 -540 360z"/>
+                                            <path d="M1556 3805 c-269 -129 -502 -235 -516 -235 -15 0 -164 60 -331 134
+                                            -167 74 -316 137 -330 141 -38 9 -95 -18 -119 -57 -25 -39 -23 -112 3 -151 11
+                                            -17 139 -89 384 -215 202 -105 384 -198 404 -206 35 -15 40 -13 333 84 l297
+                                            98 117 -130 c276 -307 535 -663 712 -977 l46 -81 77 95 c82 100 215 218 310
+                                            276 31 19 57 39 57 46 0 6 -20 60 -44 120 -149 370 -321 679 -542 973 -201
+                                            267 -256 320 -336 320 -23 0 -189 -75 -522 -235z"/>
+                                            <path d="M2460 3923 c38 -47 104 -135 146 -194 75 -106 78 -108 123 -115 25
+                                            -4 56 -11 69 -15 12 -5 119 -91 238 -191 118 -101 229 -189 246 -196 43 -18
+                                            89 -8 124 29 24 25 29 39 29 80 l0 49 -276 275 -275 276 -235 44 c-128 25
+                                            -239 45 -246 45 -7 0 19 -39 57 -87z"/>
+                                            <path d="M665 2975 c-46 -45 -37 -66 111 -263 96 -129 144 -184 162 -189 42
+                                            -10 74 9 107 64 16 29 32 53 35 53 3 0 45 -68 94 -151 49 -82 97 -154 107
+                                            -159 50 -27 119 12 119 67 -1 18 -49 109 -133 248 -104 171 -139 222 -160 229
+                                            -44 16 -77 -3 -114 -64 -18 -30 -36 -56 -40 -57 -5 -1 -46 50 -93 113 -47 64
+                                            -93 120 -102 125 -30 16 -68 10 -93 -16z"/>
+                                            <path d="M1385 2775 c-31 -30 -31 -46 0 -165 26 -104 46 -130 97 -130 35 0 78
+                                            40 78 72 -1 54 -50 213 -71 231 -31 25 -75 22 -104 -8z"/>
+                                            <path d="M3560 2635 c-8 -2 -49 -9 -90 -15 -349 -57 -676 -294 -846 -614 -102
+                                            -191 -138 -342 -138 -566 0 -113 4 -178 18 -240 104 -481 475 -845 961 -941
+                                            103 -21 349 -18 455 5 481 104 845 475 941 961 8 40 14 132 14 215 0 157 -12
+                                            236 -56 372 -129 399 -465 705 -879 799 -78 18 -338 35 -380 24z m415 -380
+                                            l25 -24 0 -236 0 -235 235 0 236 0 24 -25 25 -24 0 -271 0 -271 -25 -24 -24
+                                            -25 -236 0 -235 0 0 -235 0 -236 -25 -24 -24 -25 -271 0 -271 0 -24 25 -25 24
+                                            0 236 0 235 -235 0 -236 0 -24 25 -25 24 0 271 0 271 25 24 24 25 236 0 235 0
+                                            0 235 0 236 25 24 24 25 271 0 271 0 24 -25z"/>
+                                            <path d="M3520 1885 l0 -236 -25 -24 -24 -25 -236 0 -235 0 0 -160 0 -160 235
+                                            0 236 0 24 -25 25 -24 0 -236 0 -235 160 0 160 0 0 235 0 236 25 24 24 25 236
+                                            0 235 0 0 160 0 160 -235 0 -236 0 -24 25 -25 24 0 236 0 235 -160 0 -160 0 0
+                                            -235z"/>
+                                            <path d="M1783 2392 c-174 -132 -276 -217 -284 -234 -10 -24 8 -99 145 -613
+                                            86 -323 163 -597 172 -610 18 -28 72 -55 108 -55 67 0 130 51 142 116 4 23
+                                            -22 171 -87 483 -74 360 -90 455 -82 474 7 15 80 63 217 141 113 64 206 119
+                                            206 122 0 19 -239 376 -255 381 -5 1 -132 -91 -282 -205z"/>
+                                            <path d="M465 2495 c-16 -16 -25 -35 -25 -57 0 -29 20 -53 183 -215 156 -156
+                                            187 -183 213 -183 49 0 70 24 99 110 15 44 29 80 31 80 3 0 41 -25 87 -55 51
+                                            -34 92 -55 110 -55 55 0 94 69 68 119 -15 28 -283 201 -312 201 -43 0 -67 -27
+                                            -90 -100 l-23 -70 -126 125 c-109 108 -131 125 -159 125 -21 0 -41 -9 -56 -25z"/>
+                                            <path d="M1174 2026 c-45 -30 -84 -62 -88 -71 -20 -53 18 -115 70 -115 31 0
+                                            179 92 194 121 27 50 -12 119 -67 119 -17 0 -59 -21 -109 -54z"/>
+                                            <path d="M1311 1863 c-22 -19 -71 -150 -71 -190 0 -58 83 -93 129 -55 22 18
+                                            71 149 71 189 0 58 -83 93 -129 56z"/>
+                                            </g>
+                                            </svg>
+                                      </div>
+
+                                      <div class="col-md-6">
+
+                                        <label for="" class="form-label">Houve lesão durante o TAF?</label>
+                                        <select name="lesao" id="lesao" class="form-select">
+                                          <option value="0">Não</option>
+                                          <option value="50m">Corrida 50m</option>
+                                          <option value="2400m">Corrida 2400m</option>
+                                          <option value="isometria">Isometria</option>
+                                          <option value="barra">Barra</option>
+                                          <option value="abdominal">Abdominal</option>
+                                          <option value="apoio">Apoio de Frente</option>
+                                        </select>
+
+                                      </div>
+                                      
+
+                                    </div>
+                                    
+                      
+                                    
+
+                                  </div>
+
+
+                                  <div class="col-md-6">
+
+
+                                    <table class="table table-bordered table-striped">
+
+                                      <tr>
+                                        <th>Pontuação</th>
+                                        <th>Resultado</th>
+                                      </tr>
+
+                                      <tr>
+                                        <td><input type="text" class="form-control" name="pontuacao" id="pontuacao" style="font-size: 1.4em;"></td>
+                                        <td><input type="text" class="form-control" name="resultado" id="resultado" style="font-size: 1.4em;"></td>
+                                      </tr>
+
+                                    </table>
+
+                                  </div>
+
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                <button type="submit" class="btn btn__primary">Confirmar</button>
+                            </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+
+    <!-- Modal PM -->
+
+
+
+    <!-- Modal Upload de planilha SITAF  -->
+  <div class="modal fade modal-xl" id="modalSITAF" tabindex="-1" aria-labelledby="modalSITAFLabel" aria-hidden="true">
+    
+<!--<form action="?pagina=TAF&metodo=uploadPlanilhaSITAF"  enctype="multipart/form-data" method="post" class="modal-dialog"> -->
+    <form action="?pagina=TAF&metodo=colarPlanilhaSITAF"  method="post" class="modal-dialog">        
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="modalSITAFLabel">Planilha SITAF</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            
+            
+            <div class="row" hidden>
+              <div class="col-md-3">
+                <label for="" class="form-label">ID Turma</label>
+                <input type="text" class="form-control" name="id_turma" value="{{turma.id_turma}}">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <label for="" class="form-control">Colar células</label>
+                <textarea name="celulas" id="" class="form-control" rows="26" style="border: 1px solid #DEE2E6; font-size: 14px;"></textarea>
+              </div>
+            </div>
+  
+            <!-- <div class="mb-3">
+              <label for="formFile" class="form-label">Upload da planilha</label>
+              <input class="form-control" type="file" id="formFile" name="planilha" accept=".xlsx, .xls, .csv">
+            </div> -->
+  
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="submit" class="btn btn-primary">Carregar</button>
+          </div>
+
+
+        </div>
+    </form>
+  </div>
+
+    
+
+
+
+</section>
+
+
+<script>
+
+
+const discentes = [
+                    {% for discente in discentes %}
+                    {{ {
+                      id_discente: discente.id_discente,
+                      id_turma: discente.turmas_id_turma,
+                      nome: discente.nome,
+                      re: discente.re,
+                      dg_re: discente.dg_re,
+                      pt_gr: discente.pt_gr,
+                      opm: discente.opm,
+                      sexo: discente.sexo,
+                      data_nascimento: discente.data_nascimento,
+                      idade: discente.idade,
+                      peso: discente.peso,
+                      altura: discente.altura,
+                      imc: discente.imc,
+                      barra: discente.barra,
+                      isometria: discente.isometria,
+                      corrida_2400: discente.corrida_2400,
+                      apoio_frente: discente.apoio_frente,
+                      corrida_50: discente.corrida_50,
+                      abdominal: discente.abdominal,
+                      natacao: discente.natacao,
+                      barra_pontos: discente.barra_pontos,
+                      isometria_pontos: discente.isometria_pontos,
+                      corrida_2400_pontos: discente.corrida_2400_pontos,
+                      apoio_frente_pontos: discente.apoio_frente_pontos,
+                      corrida_50_pontos: discente.corrida_50_pontos,
+                      abdominal_pontos: discente.abdominal_pontos,
+                      natacao_pontos: discente.natacao_pontos,
+                      pontuacao_taf: discente.pontuacao_taf,
+                      conceito_taf: discente.conceito_taf
+                    }|json_encode|raw }}{% if not loop.last %},{% endif %}
+                    {% endfor %}
+                  ];
+
+  // Impede o submit com Enter e simula Tab
+  document.addEventListener('keydown', function(e) {
+    // seta frente ArrowRight
+    // seta baixo ArrowDown
+    // seta cima ArrowUp
+    // seta esquerda ArrowLeft
+
+    if (e.key === 'Enter'|| e.key === 'ArrowDown') {
+      e.preventDefault(); // evita o envio do formulário
+      const form = e.target.form;
+      const index = Array.prototype.indexOf.call(form, e.target);
+      form.elements[index + 4]?.focus();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault(); // evita o envio do formulário
+      const form = e.target.form;
+      const index = Array.prototype.indexOf.call(form, e.target);
+      form.elements[index - 4]?.focus();
+    }
+  });
+
+
+
+
+  function inserirTAF(re) {
+
+    limpaCamposModal();
+    
+    const discente = discentes.find(d => d.re == re);
+
+    document.getElementById('modal-ptgr').innerHTML = discente.pt_gr;
+    document.getElementById('modal-re').innerHTML = discente.re;
+    document.getElementById('modal-nome').innerHTML = discente.nome;
+    document.getElementById('modal-opm').innerHTML = discente.opm;
+    document.getElementById('modal-sexo').value = discente.sexo;
+
+    
+    document.getElementById('modal-iddisscente').value = discente.id_discente;
+    document.getElementById('modal-idturma').value = discente.id_turma;
+
+    //carregar os campos com os valores e pontos
+    document.getElementById('isometria').value = discente.isometria;
+    document.getElementById('corrida_2400').value = discente.corrida_2400;
+    document.getElementById('apoio').value = discente.apoio_frente;
+    document.getElementById('abdominal').value = discente.abdominal;
+    document.getElementById('barra').value = discente.barra;
+    document.getElementById('corrida_50').value = discente.corrida_50;
+    document.getElementById('natacao').value = discente.natacao;
+
+    document.getElementById('isometria_pontos').value = discente.isometria_pontos;
+    document.getElementById('corrida_2400_pontos').value = discente.corrida_2400_pontos;
+    document.getElementById('apoio_pontos').value = discente.apoio_frente_pontos;
+    document.getElementById('abdominal_pontos').value = discente.abdominal_pontos;
+    document.getElementById('barra_pontos').value = discente.barra_pontos;
+    document.getElementById('corrida_50_pontos').value = discente.corrida_50_pontos;
+    document.getElementById('natacao_pontos').value = discente.natacao_pontos;
+
+    document.getElementById('pontuacao').value = discente.pontuacao_taf;
+    document.getElementById('resultado').value = discente. conceito_taf;
+
+    
+    // Suponha que estas variáveis estejam sendo passadas com o formato YYYY-MM-DD
+    let dataInicio = new Date("{{ turma.inicio|date('Y-m-d') }}");
+    let dataNascimento = new Date(discente.data_nascimento); // essa precisa estar disponível como string válida também
+
+    let idade = dataInicio.getFullYear() - dataNascimento.getFullYear();
+    let mes = dataInicio.getMonth() - dataNascimento.getMonth();
+
+    // Ajusta se ainda não fez aniversário no ano
+    if (mes < 0 || (mes === 0 && dataInicio.getDate() < dataNascimento.getDate())) {
+        idade--;
+    }
+
+    document.getElementById('modal-idade').innerHTML = idade;
+    document.getElementById('idade_taf').value = idade;
+
+      verificaSexo(discente.sexo);
+
+  }
+
+
+  function verificaSexo(sexo) {
+    document.querySelectorAll('.td_isometria').forEach(el => el.style.display = 'table-cell');
+    document.querySelectorAll('.td_barra').forEach(el => el.style.display = 'table-cell');
+
+    if (sexo === 'M') {
+      document.querySelectorAll('.td_isometria').forEach(el => el.style.display = 'none');
+    } else {
+      document.querySelectorAll('.td_barra').forEach(el => el.style.display = 'none');
+    }
+  }
+
+
+  function calcularTAF() {
+
+    const btnResultado = document.getElementById('resultado');
+    const btnPontucao = document.getElementById('pontuacao');
+
+    let tempoIsometria = document.getElementById('isometria').value;
+    let segundos = tempoParaSegundos(tempoIsometria);
+
+    let idade = document.getElementById('idade_taf').value;
+    let faixa = defineFaixa(idade);
+
+    let sexo = document.getElementById('modal-sexo').value;
+    let valor2400m = document.getElementById('corrida_2400').value;
+    let apoio = document.getElementById('apoio').value;
+    let abdominal = document.getElementById('abdominal').value;
+    let barra = document.getElementById('barra').value;
+    let corrida50 = document.getElementById('corrida_50').value;
+
+    let pontosIsometria = calcularIsometria(faixa, segundos);
+    let pontos2400m = calcular2400m(sexo, faixa, valor2400m);
+    let pontosApoio = calcularApoio(sexo, faixa, apoio);
+    let pontos50 = calcular50m(sexo, faixa, corrida50);
+    let pontosAbdominal = calcularAbdominal(sexo, faixa, abdominal);
+    let pontosNatacao = 0;
+    let pontosBarra = calcularBarra(sexo, faixa, barra)
+
+    
+    
+    document.getElementById('isometria_pontos').value = pontosIsometria;
+    document.getElementById('corrida_2400_pontos').value = pontos2400m;
+    document.getElementById('apoio_pontos').value = pontosApoio;
+    document.getElementById('abdominal_pontos').value = pontosAbdominal;
+    document.getElementById('barra_pontos').value = pontosBarra;
+    document.getElementById('corrida_50_pontos').value = pontos50;
+
+    let pontuacaoTAF = '';
+    if (sexo == 'F'){
+      pontuacaoTAF = pontosIsometria + pontos2400m + pontosApoio + pontos50 + pontosAbdominal + pontosNatacao;
+    } else {
+      pontuacaoTAF = pontosBarra + pontos2400m + pontosApoio + pontos50 + pontosAbdominal + pontosNatacao;
+    }
+
+    let conceitoTAF = verificaConceitoTAF(pontuacaoTAF);
+
+    //se pontuação < 20 de algum teste, reprovado
+    if ( sexo == 'F' ) {
+      if ( pontosIsometria < 20 || pontos2400m < 20 || pontosApoio < 20 || pontos50 < 20 || pontosAbdominal < 20 ) {
+        //natação não inclui
+        conceitoTAF = 'Reprovado';
+      }
+    } else {
+      if ( pontosBarra < 20 || pontos2400m < 20 || pontosApoio < 20 || pontos50 < 20 || pontosAbdominal < 20 ) {
+        //natação não inclui
+        conceitoTAF = 'Reprovado';
+      }
+    }
+
+    
+    document.getElementById('pontuacao').value = pontuacaoTAF;
+    document.getElementById('resultado').value = conceitoTAF;
+
+
+  }
+
+  function defineFaixa(idade) {
+
+    let faixa = 0
+
+    if ( idade <= 25 ) {
+      faixa = 1;
+    } else if ( idade > 25 && idade <= 30 ) {
+      faixa = 2;
+    } else if ( idade > 30 && idade <= 35 ) {
+      faixa = 3;
+    } else if ( idade > 35 && idade <= 40 ) {
+      faixa = 4;
+    } else if ( idade > 40 && idade <= 45 ) {
+      faixa = 5;
+    } else if ( idade > 45 && idade <= 50 ) {
+      faixa = 6;
+    } else if ( idade > 50 && idade <= 55 ) {
+      faixa = 7;
+    } else {
+      faixa = 8;  
+    }
+
+    return faixa;
+  }
+
+
+  function calcularIsometria(faixa, segundos) {
+
+    const notas = [100, 90, 80, 70, 60, 50, 40, 30, 20, 10];
+
+    const tabelaIsometria = {
+      '1': [35, 31, 27, 23, 19, 15, 11, 7, 4, 2],
+      '2': [31, 27, 23, 19, 15, 11, 7, 4, 2, 2],
+      '3': [27, 23, 19, 15, 11, 7, 4, 2, 2, 2],
+      '4': [23, 19, 15, 11, 7, 4, 2, 2, 2, 2],
+      '5': [19, 15, 11, 7, 4, 2, 2, 2, 2, 2],
+      '6': [15, 11, 7, 4, 2, 2, 2, 2, 2, 2],
+      '7': [11, 7, 4, 2, 2, 2, 2, 2, 2, 2],
+      '8': [7, 4, 2, 2, 2, 2, 2, 2, 2]
+    };
+
+    const tempos = tabelaIsometria[faixa];
+    //const notasInversas = notas.slice().reverse(); // [10, 20, ..., 100]
+    const notasInversas = notas;
+
+    for (let i = 0; i < tempos.length - 1; i++) {
+      const t1 = tempos[i];
+      const t2 = tempos[i + 1];
+      const n1 = notasInversas[i];
+      const n2 = notasInversas[i + 1];
+
+      if (segundos >= t2 && segundos <= t1) {
+        // Interpolação linear entre t1/n1 e t2/n2
+        const interpolado = n1 + ((segundos - t1) / (t2 - t1)) * (n2 - n1);
+        return Math.round(interpolado);
+      }
+    }
+
+    // Se for maior que o tempo máximo da faixa → 100 pontos
+    if (segundos >= tempos[0]) return 100;
+    // Se for menor que o tempo mínimo → 0 pontos
+    return 0;
+  }
+
+
+  function calcular2400m(sexo, faixa, valor) {
+
+    const notas = [100, 90, 80, 70, 60, 50, 40, 30, 20, 10];
+
+    const tabela2400Masculino = {
+      '1': [9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14],
+      '2': [10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5],
+      '3': [10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15],
+      '4': [11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5],
+      '5': [11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16],
+      '6': [12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5],
+      '7': [12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17],
+      '8': [13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5]
+    };
+
+    const tabela2400Feminino = {
+      '1': [11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16],
+      '2': [12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5],
+      '3': [12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17],
+      '4': [13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5],
+      '5': [13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18],
+      '6': [14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5],
+      '7': [14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19],
+      '8': [15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5]
+    };
+
+    let tempos = '';
+
+    if (sexo == 'F') {
+      tempos = tabela2400Feminino[faixa];
+    } else {
+      tempos = tabela2400Masculino[faixa];
+    }
+
+    minutos = tempoParaMinutos(valor);
+  
+    for (let i = 0; i < tempos.length - 1; i++) {
+      const t1 = tempos[i];
+      const t2 = tempos[i + 1];
+      const n1 = notas[i];
+      const n2 = notas[i + 1];
+
+      if (minutos >= t1 && minutos <= t2) {
+        // Interpolação linear entre t1/n1 e t2/n2
+        const interpolado = n1 + ((minutos - t1) / (t2 - t1)) * (n2 - n1);
+        return Math.round(interpolado);
+      }
+    }
+
+    // Se for maior que o tempo máximo da faixa → 100 pontos
+    if (minutos <= tempos[0] && minutos > 0) return 100;
+    // Se for menor que o tempo mínimo → 0 pontos
+    return 0;
+  }
+
+
+  function calcularApoio(sexo, faixa, valor) {
+
+    const notas = [100, 90, 80, 70, 60, 50, 40, 30, 20, 10];
+
+    const tabelaApoioMasculino = {
+      '1': [32, 30, 28, 26, 24, 22, 20, 18, 16, 14],
+      '2': [30, 28, 26, 24, 22, 20, 18, 16, 14, 12],
+      '3': [28, 26, 24, 22, 20, 18, 16, 14, 12, 10],
+      '4': [26, 24, 22, 20, 18, 16, 14, 12, 10, 8],
+      '5': [24, 22, 20, 18, 16, 14, 12, 10, 8, 6],
+      '6': [22, 20, 18, 16, 14, 12, 10, 8, 6, 4],
+      '7': [20, 18, 16, 14, 12, 10, 8, 6, 4, 2],
+      '8': [18, 16, 14, 12, 10, 8, 6, 4, 2, 2]
+    };
+
+    const tabelaApoioFeminino = {
+      '1': [34, 32, 30, 28, 26, 24, 22, 20, 18, 16],
+      '2': [32, 30, 28, 26, 24, 22, 20, 18, 16, 14],
+      '3': [30, 28, 26, 24, 22, 20, 18, 16, 14, 12],
+      '4': [28, 26, 24, 22, 20, 18, 16, 14, 12, 10],
+      '5': [26, 24, 22, 20, 18, 16, 14, 12, 10, 8],
+      '6': [24, 22, 20, 18, 16, 14, 12, 10, 8, 6],
+      '7': [22, 20, 18, 16, 14, 12, 10, 8, 6, 6],
+      '8': [20, 18, 16, 14, 12, 10, 8, 6, 6, 6]
+    };
+
+    let valores = '';
+
+    if (sexo == 'F') {
+      valores = tabelaApoioFeminino[faixa];
+    } else {
+      valores = tabelaApoioMasculino[faixa];
+    }
+
+
+    for (let i = 0; i < valores.length - 1; i++) {
+      const t1 = valores[i];
+      const t2 = valores[i + 1];
+      const n1 = notas[i];
+      const n2 = notas[i + 1];
+
+      if (valor <= t1 && valor >= t2) {
+        // Interpolação linear entre t1/n1 e t2/n2
+        const interpolado = n1 + ((valor - t1) / (t2 - t1)) * (n2 - n1);
+        return Math.round(interpolado);
+      }
+    }
+
+    // Se for maior que o tempo máximo da faixa → 100 pontos
+    if (valor >= valores[0]) return 100;
+    // Se for menor que o tempo mínimo → 0 pontos
+    return 0;
+  }
+
+
+  function calcularAbdominal(sexo, faixa, valor) {
+
+    const notas = [100, 90, 80, 70, 60, 50, 40, 30, 20, 10];
+
+    //primeira faixa de idades para abdominal até 40 anos
+    const tabelaAbdominalMasculino = {
+      '1': [50, 48, 46, 44, 42, 40, 38, 36, 34, 32],
+      '2': [50, 48, 46, 44, 42, 40, 38, 36, 34, 32],
+      '3': [50, 48, 46, 44, 42, 40, 38, 36, 34, 32],
+      '4': [50, 48, 46, 44, 42, 40, 38, 36, 34, 32],
+      '5': [42, 40, 38, 36, 34, 32, 30, 28, 26, 24],
+      '6': [40, 38, 36, 34, 32, 30, 28, 26, 24, 22],
+      '7': [38, 36, 34, 32, 30, 28, 26, 24, 22, 20],
+      '8': [36, 34, 32, 30, 28, 26, 24, 22, 20, 18]
+    };
+
+    //primeira faixa de idades para abdominal até 35
+    const tabelaAbdominalFeminino = {
+      '1': [48, 46, 44, 42, 40, 38, 36, 34, 32, 30],
+      '2': [48, 46, 44, 42, 40, 38, 36, 34, 32, 30],
+      '3': [48, 46, 44, 42, 40, 38, 36, 34, 32, 30],
+      '4': [42, 40, 38, 36, 34, 32, 30, 28, 26, 24],
+      '5': [40, 38, 36, 34, 32, 30, 28, 26, 24, 22],
+      '6': [38, 36, 34, 32, 30, 28, 26, 24, 22, 20],
+      '7': [36, 34, 32, 30, 28, 26, 24, 22, 20, 18],
+      '8': [34, 32, 30, 28, 26, 24, 22, 20, 18, 16]
+    };
+
+    let valores = '';
+
+    if (sexo == 'F') {
+      valores = tabelaAbdominalFeminino[faixa];
+    } else {
+      valores = tabelaAbdominalMasculino[faixa];
+    }
+
+
+    for (let i = 0; i < valores.length - 1; i++) {
+      const t1 = valores[i];
+      const t2 = valores[i + 1];
+      const n1 = notas[i];
+      const n2 = notas[i + 1];
+
+      if (valor <= t1 && valor >= t2) {
+        // Interpolação linear entre t1/n1 e t2/n2
+        const interpolado = n1 + ((valor - t1) / (t2 - t1)) * (n2 - n1);
+        return Math.round(interpolado);
+      }
+    }
+
+    // Se for maior que o tempo máximo da faixa → 100 pontos
+    if (valor >= valores[0]) return 100;
+    // Se for menor que o tempo mínimo → 0 pontos
+    return 0;
+  }
+
+
+  function calcularBarra(sexo, faixa, valor) {
+
+    const notas = [100, 90, 80, 70, 60, 50, 40, 30, 20, 10];
+
+    const tabelaBarraMasculino = {
+      '1': [12, 11, 10, 9, 8, 7, 6, 5, 4, 3],
+      '2': [11, 10, 9, 8, 7, 6, 5, 4, 3, 2],
+      '3': [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+      '4': [9, 8, 7, 6, 5, 4, 3, 2, 1, 1],
+      '5': [8, 7, 6, 5, 4, 3, 2, 1, 1, 1],
+      '6': [7, 6, 5, 4, 3, 2, 1, 1, 1, 1],
+      '7': [6, 5, 4, 3, 2, 1, 1, 1, 1, 1],
+      '8': [5, 4, 3, 2, 1, 1, 1, 1, 1, 1]
+    };
+
+
+    valores = tabelaBarraMasculino[faixa];
+
+
+    for (let i = 0; i < valores.length - 1; i++) {
+      const t1 = valores[i];
+      const t2 = valores[i + 1];
+      const n1 = notas[i];
+      const n2 = notas[i + 1];
+
+      if (valor <= t1 && valor >= t2) {
+        // Interpolação linear entre t1/n1 e t2/n2
+        const interpolado = n1 + ((valor - t1) / (t2 - t1)) * (n2 - n1);
+        return Math.round(interpolado);
+      }
+    }
+
+    // Se for maior que o tempo máximo da faixa → 100 pontos
+    if (valor >= valores[0]) return 100;
+    // Se for menor que o tempo mínimo → 0 pontos
+    return 0;
+  }
+
+
+  function calcular50m(sexo, faixa, valor) {
+
+    const notas = [100, 90, 80, 70, 60, 50, 40, 30, 20, 10];
+
+    const tabela50Masculino = {
+      '1': [6.5, 6.8, 7.1, 7.4, 7.7, 8, 8.3, 8.6, 8.9, 9.2],
+      '2': [6.8, 7.1, 7.4, 7.7, 8, 8.3, 8.6, 8.9, 9.2, 9.5],
+      '3': [7.1, 7.4, 7.7, 8, 8.3, 8.6, 8.9, 9.2, 9.5, 9.8],
+      '4': [7.4, 7.7, 8, 8.3, 8.6, 8.9, 9.2, 9.5, 9.8, 10.10],
+      '5': [7.7, 8, 8.3, 8.6, 8.9, 9.2, 9.5, 9.8, 10.1, 10.4],
+      '6': [8, 8.3, 8.6, 8.9, 9.2, 9.5, 9.8, 10.1, 10.4, 10.7],
+      '7': [8.3, 8.6, 8.9, 9.2, 9.5, 9.8, 10.1, 10.4, 10.7, 11],
+      '8': [8.6, 8.9, 9.2, 9.5, 9.8, 10.1, 10.4, 10.7, 11, 11.3]
+    };
+
+    const tabela50Feminino = {
+      '1': [7.7, 7.93, 8.16, 8.39, 8.62, 8.85, 9.08, 9.31, 9.54, 9.77],
+      '2': [7.93, 8.16, 8.39, 8.62, 8.85, 9.08, 9.31, 9.54, 9.77, 10],
+      '3': [8.16, 8.39, 8.62, 8.85, 9.08, 9.31, 9.54, 9.77, 10, 10.23],
+      '4': [8.39, 8.62, 8.85, 9.08, 9.31, 9.54, 9.77, 10, 10.23, 10.46],
+      '5': [8.62, 8.85, 9.08, 9.31, 9.54, 9.77, 10, 10.23, 10.46, 10.69],
+      '6': [8.85, 9.08, 9.31, 9.54, 9.77, 10, 10.23, 10.46, 10.69, 10.92],
+      '7': [9.08, 9.31, 9.54, 9.77, 10, 10.23, 10.46, 10.69, 10.92, 11.15],
+      '8': [9.31, 9.54, 9.77, 10, 10.23, 10.46, 10.69, 10.92, 11.15, 11.38]
+    };
+
+    let tempos = '';
+
+    if (sexo == 'F') {
+      tempos = tabela50Feminino[faixa];
+    } else {
+      tempos = tabela50Masculino[faixa];
+    }
+
+    segundos = valor;
+  
+    for (let i = 0; i < tempos.length - 1; i++) {
+      const t1 = tempos[i];
+      const t2 = tempos[i + 1];
+      const n1 = notas[i];
+      const n2 = notas[i + 1];
+
+      if (segundos >= t1 && segundos <= t2) {
+        // Interpolação linear entre t1/n1 e t2/n2
+        const interpolado = n1 + ((segundos - t1) / (t2 - t1)) * (n2 - n1);
+        return Math.round(interpolado);
+      }
+    }
+
+    // Se for maior que o tempo máximo da faixa → 100 pontos
+    if (segundos <= tempos[0] && segundos > 0 ) return 100;
+    // Se for menor que o tempo mínimo → 0 pontos
+    return 0;
+  }
+
+
+
+
+  function tempoParaSegundos(tempo) {
+    const [minutos, segundos] = tempo.split(':').map(Number);
+    return (minutos * 60) + segundos;
+  }
+
+
+  function tempoParaMinutos(tempo) {
+    const [minutos, segundos] = tempo.split(':').map(Number);
+    return (minutos + (segundos / 60)).toFixed(2);
+  }
+
+
+
+  function verificaConceitoTAF(pontuacao) {
+
+    if (!isNaN(pontuacao)) {
+      // Define conceito
+      if (pontuacao < 250) {
+        conceito = 'Reprovado';
+      } else if (pontuacao <= 329) {
+        conceito = 'Regular';
+      } else if (pontuacao <= 414) {
+        conceito = 'Bom';
+      }  else {
+        conceito = 'Muito Bom';
+      }
+    }
+
+    return conceito;
+  }
+
+
+  function calculoBarra() {
+    let barra = document.getElementById('barra').value;    
+    if (barra == null || barra == '') return
+    let idade = document.getElementById('idade_taf').value;
+    let faixa = defineFaixa(idade);
+    let sexo = document.getElementById('modal-sexo').value;   
+    let pontosBarra = calcularBarra(sexo, faixa, barra);
+    document.getElementById('barra_pontos').value = pontosBarra;
+    resultadoTAF();
+
+    /*if (pontosBarra < 20) {
+      document.getElementById("resultado").value = "Reprovado";
+    } else {
+      document.getElementById("resultado").value = "Aprovado";
+    }*/
+
+  }
+
+  function calculoIsometria() {
+    let tempoIsometria = document.getElementById('isometria').value;
+    if (tempoIsometria == null || tempoIsometria == '') return
+    let idade = document.getElementById('idade_taf').value;
+    let faixa = defineFaixa(idade);
+    let segundos = tempoParaSegundos(tempoIsometria);    
+    let pontosIsometria = calcularIsometria(faixa, segundos);
+    document.getElementById('isometria_pontos').value = pontosIsometria;
+    resultadoTAF();
+  }
+
+  function calculoAbdominal() {
+    let abdominal = document.getElementById('abdominal').value; 
+    if (abdominal == null || abdominal == '') return
+    let idade = document.getElementById('idade_taf').value;
+    let faixa = defineFaixa(idade);
+    let sexo = document.getElementById('modal-sexo').value;    
+    let pontosAbdominal = calcularAbdominal(sexo, faixa, abdominal);   
+    document.getElementById('abdominal_pontos').value = pontosAbdominal;
+    resultadoTAF();
+  }
+
+  function calculoApoio() {
+    let apoio = document.getElementById('apoio').value;
+    if (apoio == null || apoio == '') return
+    let idade = document.getElementById('idade_taf').value;
+    let faixa = defineFaixa(idade);
+    let sexo = document.getElementById('modal-sexo').value;    
+    let pontosApoio = calcularApoio(sexo, faixa, apoio);
+    document.getElementById('apoio_pontos').value = pontosApoio;
+    resultadoTAF();
+  }
+
+
+  function calculo2400() {
+    let valor2400m = document.getElementById('corrida_2400').value;   
+    if (valor2400m == null || valor2400m == '') return
+    let idade = document.getElementById('idade_taf').value;
+    let faixa = defineFaixa(idade);
+    let sexo = document.getElementById('modal-sexo').value;    
+    let pontos2400m = calcular2400m(sexo, faixa, valor2400m);    
+    document.getElementById('corrida_2400_pontos').value = pontos2400m;
+    resultadoTAF();
+  }
+
+
+  function calculo50() {
+    let corrida50 = document.getElementById('corrida_50').value;
+    if (corrida50 == null || corrida50 == '') return
+    let idade = document.getElementById('idade_taf').value;
+    let faixa = defineFaixa(idade);
+    let sexo = document.getElementById('modal-sexo').value;    
+    let pontos50 = calcular50m(sexo, faixa, corrida50);
+    document.getElementById('corrida_50_pontos').value = pontos50;
+    resultadoTAF();
+  }
+
+
+  function resultadoTAF() {
+    let pontosIsometria = parseInt(document.getElementById('isometria_pontos').value) || 0;
+    let pontos2400m = parseInt(document.getElementById('corrida_2400_pontos').value) || 0;
+    let pontosApoio = parseInt(document.getElementById('apoio_pontos').value) || 0;
+    let pontosAbdominal = parseInt(document.getElementById('abdominal_pontos').value) || 0;
+    let pontosBarra = parseInt(document.getElementById('barra_pontos').value) || 0;
+    let pontos50 = parseInt(document.getElementById('corrida_50_pontos').value) || 0;
+    let pontosNatacao = parseInt(document.getElementById('natacao_pontos').value) || 0;
+    let sexo = document.getElementById('modal-sexo').value;
+
+    let pontuacaoTAF = 0;
+
+    if (sexo === 'F') {
+      pontuacaoTAF = pontosIsometria + pontos2400m + pontosApoio + pontos50 + pontosAbdominal + pontosNatacao;
+    } else {
+      pontuacaoTAF = pontosBarra + pontos2400m + pontosApoio + pontos50 + pontosAbdominal + pontosNatacao;
+    }
+
+    let conceitoTAF = '';
+
+    if ( sexo == 'F' ) {
+      if ( pontosIsometria < 20 || pontos2400m < 20 || pontosApoio < 20 || pontos50 < 20 || pontosAbdominal < 20 ) {
+        //natação não inclui
+        conceitoTAF = 'Reprovado';
+      } else {
+        conceitoTAF = verificaConceitoTAF(pontuacaoTAF);
+      }
+    } else {
+      if ( pontosBarra < 20 || pontos2400m < 20 || pontosApoio < 20 || pontos50 < 20 || pontosAbdominal < 20 ) {
+        //natação não inclui
+        conceitoTAF = 'Reprovado';
+      } else {
+        conceitoTAF = verificaConceitoTAF(pontuacaoTAF);           
+      }
+    }
+
+    document.getElementById('pontuacao').value = pontuacaoTAF;
+    document.getElementById('resultado').value = conceitoTAF;
+  }
+
+
+
+
+
+  function limpaCamposModal()
+  {
+    document.getElementById('barra').value = null;
+    document.getElementById('isometria').value = null;
+    document.getElementById('corrida_2400').value = null;
+    document.getElementById('apoio').value = null;
+    document.getElementById('abdominal').value = null;
+    document.getElementById('corrida_50').value = null;
+    document.getElementById('natacao').value = null;
+
+    document.getElementById('barra_pontos').value = null;
+    document.getElementById('isometria_pontos').value = null;
+    document.getElementById('corrida_2400_pontos').value = null;
+    document.getElementById('apoio_pontos').value = null;
+    document.getElementById('abdominal_pontos').value = null;
+    document.getElementById('corrida_50_pontos').value = null;
+    document.getElementById('natacao_pontos').value = null;
+
+    document.getElementById('pontuacao').value = null;
+    document.getElementById('resultado').value = null;
+  }
+
+
+
+
+  function conceitoTAF__ (valor, re) {
+    const pontuacao = parseFloat(valor.replace(',', '.'));
+    let conceito = '';
+    let nota = '';
+
+    if (!isNaN(pontuacao)) {
+      // Define conceito
+      /*if (pontuacao < 172) {
+        conceito = 'Insuficiente';
+      } else if (pontuacao < 242) {
+        conceito = 'Regular';
+      } else if (pontuacao < 295) {
+        conceito = 'Bom';
+      } else if (pontuacao < 336) {
+        conceito = 'Muito Bom';
+      } else {
+        conceito = 'Excepcional';
+      }
+
+      // Calcula nota com duas casas decimais
+      nota = (pontuacao / 33).toFixed(2);*/
+
+      conceito = '??';
+    }
+
+    // Atualiza campo conceito
+    const conceitoInput = document.getElementById(`conceito_taf[${re}]`);
+    if (conceitoInput) {
+      conceitoInput.value = conceito;
+    }
+
+
+  }
+
+  // Aplica o evento aos inputs de pontuação
+  window.addEventListener('DOMContentLoaded', () => {
+    const inputs = document.querySelectorAll('[id^="pontuacao_taf["]');
+    inputs.forEach(input => {
+      input.addEventListener('blur', () => {
+        const re = input.name.match(/\[(\d+)\]/)[1]; // extrai RE
+        conceitoTAF(input.value, re);
+      });
+    });
+  });
+</script>

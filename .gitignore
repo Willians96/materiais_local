@@ -1,0 +1,41 @@
+# ================ AMBIENTE ================
+.env
+.env.local
+.env.*.local
+
+# ================ DEPENDÊNCIAS ================
+vendor/
+node_modules/
+
+# ================ SESSÕES / CACHE ================
+tmp/sessions/*
+!tmp/sessions/.gitkeep
+tmp/cache/*
+tmp/logs/*
+*.log
+
+# ================ UPLOADS ================
+public/uploads/*
+!public/uploads/.gitkeep
+
+# ================ IDE / EDITOR ================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ================ CREDENCIAIS / BACKUP ================
+hostinger.txt
+*.bak
+*.dump
+*.sql.gz
+backups/
+
+# ================ MISC ================
+*.pid
+*.seed
+*.pid.lock
+.phpunit.result.cache

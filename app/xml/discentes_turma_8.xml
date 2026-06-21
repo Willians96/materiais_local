@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<discentes>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>112006</re>
+    <nome>VALDEMIR RICARDY DE OLIVEIRA</nome>
+    <opm>CPI-7</opm>
+    <nota_ead>3.00</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>982344</re>
+    <nome>GRIMAILDE SILVA LAUZEM</nome>
+    <opm>CPI-7</opm>
+    <nota_ead>1.75</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>101827</re>
+    <nome>JEAN ROBERTO MARQUES</nome>
+    <opm>7.BPM/I</opm>
+    <nota_ead>3.75</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>111747</re>
+    <nome>ANDERSON PADILHA SILVA</nome>
+    <opm>7.BPM/I</opm>
+    <nota_ead>3.50</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>132623</re>
+    <nome>WILLIAM DA CRUZ HENRIQUES</nome>
+    <opm>7.BPM/I</opm>
+    <nota_ead>3.00</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>SD PM - 1C</pt_gr>
+    <re>156974</re>
+    <nome>JOAO FELIPE PRESTES FERNANDES</nome>
+    <opm>7.BPM/I</opm>
+    <nota_ead>3.75</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>155031</re>
+    <nome>JULIO CESAR GARCIA LEZIER</nome>
+    <opm>40.BPM/I</opm>
+    <nota_ead>2.75</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>133117</re>
+    <nome>EDILSON DO NASCIMENTO CAMARGO</nome>
+    <opm>40.BPM/I</opm>
+    <nota_ead>2.50</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>109330</re>
+    <nome>CLAUDINEI MARQUES DE OLIVEIRA</nome>
+    <opm>40.BPM/I</opm>
+    <nota_ead>4.00</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>109084</re>
+    <nome>LUCIANO CORREA DE LIMA</nome>
+    <opm>50.BPM/I</opm>
+    <nota_ead>3.75</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>134027</re>
+    <nome>IGOR JOSE DE ALMEIDA</nome>
+    <opm>50.BPM/I</opm>
+    <nota_ead>3.75</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>147929</re>
+    <nome>EZEQUIEL MARQUES DE OLIVEIRA</nome>
+    <opm>50.BPM/I</opm>
+    <nota_ead>3.75</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>148682</re>
+    <nome>FERNANDO HENRIQUE FERRAZ</nome>
+    <opm>50.BPM/I</opm>
+    <nota_ead>3.50</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>SD PM - 1C</pt_gr>
+    <re>151957</re>
+    <nome>MATEUS FOGACA DA SILVA</nome>
+    <opm>50.BPM/I</opm>
+    <nota_ead>3.75</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>SD PM - 1C</pt_gr>
+    <re>152032</re>
+    <nome>LUCAS MODESTO DA SILVA</nome>
+    <opm>50.BPM/I</opm>
+    <nota_ead>3.75</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>SD PM - 1C</pt_gr>
+    <re>180835</re>
+    <nome>IGOR MATHEUS BORGES DE CARVALHO</nome>
+    <opm>50.BPM/I</opm>
+    <nota_ead>3.50</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>128907</re>
+    <nome>DAVI JOSE DE SOUSA</nome>
+    <opm>14.BAEP</opm>
+    <nota_ead>4.00</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>SD PM - 1C</pt_gr>
+    <re>192716</re>
+    <nome>THALLES ANTONIO GOMES MEDEIROS</nome>
+    <opm>7.BPM/I</opm>
+    <nota_ead>3.75</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>CB PM</pt_gr>
+    <re>111830</re>
+    <nome>FABIO DE SOUZA MARTINS</nome>
+    <opm>40.BPM/I</opm>
+    <nota_ead>4.00</nota_ead>
+  </discente>
+  <discente>
+    <pt_gr>SD PM - 1C</pt_gr>
+    <re>193979</re>
+    <nome>THAIS MARIA CAIRONI FERREIRA</nome>
+    <opm>50.BPM/I</opm>
+    <nota_ead>4.00</nota_ead>
+  </discente>
+</discentes>

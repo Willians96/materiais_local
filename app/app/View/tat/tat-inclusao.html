@@ -1,0 +1,318 @@
+{% include 'caixaMensagem.html' %}
+<style>
+  .col-md-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 15px;
+  }
+
+  .form-control {
+    background-color: transparent;
+    border-color: transparent;
+    
+    margin: 0 !important;
+  }
+
+  .table__taf td {
+    padding: 0 !important;
+    text-align: center;
+  }
+
+
+</style>
+
+<style>
+
+    .container__tables {
+        display: flex;
+        gap: 30px;
+    }
+
+
+    .form-check-input:checked {
+        background-color: #1975C5;
+        border-color: #1975c5;
+    }
+
+    .table__cpi {
+        border-collapse: separate;
+        border-spacing: 0; 
+        border-radius: 10px; 
+        overflow: hidden;
+        border: 1px solid #DEE2E6;
+    }
+
+
+    .table__cpi tr:nth-last-child(1) {
+       border: 0px solid #fff;
+    }
+
+    .table__cpi .btn {
+        border: 1px solid #DEE2E6;
+        padding: 5px 25px;
+    }
+
+    .table__cpi .btn:hover {
+        background-color: #f2f3f3;
+    }
+
+    .btn__primary {
+        color: #fff;
+        background-color: #1975c5;
+    }
+
+    .btn__primary:hover {
+        color: #fff;
+        background-color: #0067c0 !important;
+    }
+
+    .td__row_2 {
+        padding-top: 12px !important;
+    }
+
+    .td__row_2 p:nth-child(1) {
+        line-height: 10px;
+        margin-top: 14px;
+        font-weight: 500;
+    }
+
+    .td__row_2 p:nth-child(2) {
+        line-height: 0;
+        color: #6a6b6e;
+        font-size: 0.9em;
+        margin-top: 8px;
+    }
+
+    .td__row_2 a p {
+    }
+    
+    .td__row_2 a p:hover {
+        color: #1975C5;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .td__icon {
+        color: #1975c5 !important;
+        text-align: right;
+    }
+
+    .td__right {
+        text-align: right;
+    }
+        
+
+
+</style>
+
+
+<form class="container__cpi" action="?pagina=tat&metodo=gravarTAT" method="post">
+
+    {% include 'breadcrumb.html' %}
+    
+    <div class="titulo__secao">
+        <p>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M440-42v-80q-125-14-214.5-103.5T122-440H42v-80h80q14-125 103.5-214.5T440-838v-80h80v80q125 14 214.5 103.5T838-520h80v80h-80q-14 125-103.5 214.5T520-122v80h-80Zm40-158q116 0 198-82t82-198q0-116-82-198t-198-82q-116 0-198 82t-82 198q0 116 82 198t198 82Zm0-120q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm0-80q33 0 56.5-23.5T560-480q0-33-23.5-56.5T480-560q-33 0-56.5 23.5T400-480q0 33 23.5 56.5T480-400Zm0-80Z"/></svg>                 
+            Teste de Aptidão de Tiro - TAT
+        </p>
+        <div class="barra__titulo_secao"></div>
+    </div>
+
+    <!-- Table Turma -->
+    <table class="table table__cpi mt-3" style="width: 400px">
+      <tr>
+          <td></td>
+          <td class="td__row_2">
+              <h5>{{ turma.turma }} {{ turma.tipo }}</h5>
+              <p>Turma</p>
+          </td>
+      </tr>
+      <tr>
+          <td class="td__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="22" fill="currentColor" class="bi bi-calendar-week" viewBox="0 0 16 16">
+                  <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+                  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+              </svg>
+          </td>
+          <td class="td__row_2">
+              <p>{{turma.inicio|date('d/m/Y')}} a {{turma.termino|date('d/m/Y')}}</p>
+              <p>Período</p>
+          </td>
+      </tr>
+      <tr>
+          <td class="td__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 -960 960 960" fill="currentcolor"><path d="M0-240v-63q0-43 44-70t116-27q13 0 25 .5t23 2.5q-14 21-21 44t-7 48v65H0Zm240 0v-65q0-32 17.5-58.5T307-410q32-20 76.5-30t96.5-10q53 0 97.5 10t76.5 30q32 20 49 46.5t17 58.5v65H240Zm540 0v-65q0-26-6.5-49T754-397q11-2 22.5-2.5t23.5-.5q72 0 116 26.5t44 70.5v63H780Zm-455-80h311q-10-20-55.5-35T480-370q-55 0-100.5 15T325-320ZM160-440q-33 0-56.5-23.5T80-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T160-440Zm640 0q-33 0-56.5-23.5T720-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T800-440Zm-320-40q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-600q0 50-34.5 85T480-480Zm0-80q17 0 28.5-11.5T520-600q0-17-11.5-28.5T480-640q-17 0-28.5 11.5T440-600q0 17 11.5 28.5T480-560Zm1 240Zm-1-280Z"/></svg>
+          </td>
+          <td class="td__row_2">
+              <p>{{ turma.total_discentes}}</p>
+              <p>Discentes</p>
+          </td>
+      </tr>
+      <tr>
+        <td class="td__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="22" fill="currentColor" class="bi bi-calendar-week" viewBox="0 0 16 16">
+                <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+            </svg>
+        </td>
+        <td  class="td__row_2">
+          <p>
+            Data do TAT
+            <input type="date" class="form-control" name="data_tat" value="{{turma.inicio}}" style="width: 150px;">
+          </p>
+        </td>
+      </tr>            
+  </table>
+
+
+    <!--<table class="table mt-3" style="width: 400px;">
+        <tr>
+            <th>Turma</th>
+            <td>{{ turma.turma }} {{turma.inicio|date('d/m/Y')}} a {{turma.termino|date('d/m/Y')}}</td>
+        </tr>
+        <tr>
+            <th>Tipo</th>
+            <td>{{turma.tipo}}</td>
+        </tr>
+        <tr>
+            <th>Período</th>
+            <td>{{turma.inicio|date('d/m/Y')}} a {{turma.termino|date('d/m/Y')}}</td>
+        </tr>
+        <tr>
+            <th>Data</th>
+            <td><input type="date" class="form-control" name="data_tat" value="{{turma.inicio}}"></td>
+        </tr>
+    </table> -->
+
+    <div class="row" hidden>
+      <div class="col-md-2">
+        <label class="form-label">ID Turma</label>
+        <input type="text" class="form-control" name="id_turma" value="{{turma.id_turma}}">
+      </div>
+    </div>
+
+    <table class="table table-bordered table-striped mt-3 table__taf">
+      <tr>
+          <th style="width: 10px;">#</th>
+          <th style="width: 45px;">POSTO/GRAD</th>
+          <th style="width: 110px;">RE</th>
+          <th style="width: 600px;">NOME</th>
+          <th style="width: 160px;">PONTUAÇÃO</th>
+          <th style="width: 160px;">CONCEITO</th>
+          <th style="width: 160px;">NOTA</th>
+      </tr>
+
+    {% for discente in discentes %}
+      <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ discente.pt_gr }}  </td>
+          <td>{{ discente.re }}-{{ discente.dg_re }}</td>
+          <td>{{ discente.nome }}</td>
+          <td>
+            <input type="text" name="pontuacao_tat[{{discente.re}}]" id="pontuacao_tat[{{discente.re}}]" class="form-control number" maxlength="3" value="{{discente.pontuacao_tat}}">
+            <input type="hidden" name="id_discente[{{discente.re}}]" id="id_discente[{{discente.re}}]" value="{{discente.id_discente}}" class="form-control" readonly>
+            <input type="hidden" name="re[{{discente.re}}]" id="re[{{discente.re}}]" value="{{discente.re}}" class="form-control" readonly>
+
+          </td>
+
+          <td>
+            <input type="text" name="conceito_tat[{{discente.re}}]" id="conceito_tat[{{discente.re}}]" class="form-control" value="{{discente.conceito_tat}}" tabindex="-1">
+          </td>
+
+          <td>
+            <input type="text" name="nota[{{discente.re}}]" id="nota[{{discente.re}}]" class="form-control" value="{{discente.nota_tat}}" tabindex="-1">
+          </td>
+
+    {% endfor %}
+    </table>
+
+
+    <button type="submit" class="btn btn__primary">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-floppy" viewBox="0 0 16 16">
+        <path d="M11 2H9v3h2z"/>
+        <path d="M1.5 0h11.586a1.5 1.5 0 0 1 1.06.44l1.415 1.414A1.5 1.5 0 0 1 16 2.914V14.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 14.5v-13A1.5 1.5 0 0 1 1.5 0M1 1.5v13a.5.5 0 0 0 .5.5H2v-4.5A1.5 1.5 0 0 1 3.5 9h9a1.5 1.5 0 0 1 1.5 1.5V15h.5a.5.5 0 0 0 .5-.5V2.914a.5.5 0 0 0-.146-.353l-1.415-1.415A.5.5 0 0 0 13.086 1H13v4.5A1.5 1.5 0 0 1 11.5 7h-7A1.5 1.5 0 0 1 3 5.5V1H1.5a.5.5 0 0 0-.5.5m3 4a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5V1H4zM3 15h10v-4.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5z"/>
+      </svg>
+      Salvar
+    </button>
+
+  </form>
+
+    
+
+
+
+</section>
+
+
+<script>
+  // Impede o submit com Enter e simula Tab
+  document.addEventListener('keydown', function(e) {
+    // seta frente ArrowRight
+    // seta baixo ArrowDown
+    // seta cima ArrowUp
+    // seta esquerda ArrowLeft
+
+    if (e.key === 'Enter'|| e.key === 'ArrowDown') {
+      e.preventDefault(); // evita o envio do formulário
+      const form = e.target.form;
+      const index = Array.prototype.indexOf.call(form, e.target);
+      form.elements[index + 5]?.focus();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault(); // evita o envio do formulário
+      const form = e.target.form;
+      const index = Array.prototype.indexOf.call(form, e.target);
+      form.elements[index - 5]?.focus();
+    }
+  });
+
+  function conceitoTAT(valor, re) {
+    const pontuacao = parseFloat(valor.replace(',', '.'));
+    let conceito = '';
+    let nota = '';
+
+    if (!isNaN(pontuacao)) {
+      // Define conceito
+      if (pontuacao < 172) {
+        conceito = 'Insuficiente';
+      } else if (pontuacao < 242) {
+        conceito = 'Regular';
+      } else if (pontuacao < 295) {
+        conceito = 'Bom';
+      } else if (pontuacao < 336) {
+        conceito = 'Muito Bom';
+      } else {
+        conceito = 'Excepcional';
+      }
+
+      // Calcula nota com duas casas decimais
+      nota = (pontuacao / 33).toFixed(2);
+      if ( nota > 10 ) {
+        nota = 10;
+      }
+    }
+
+    // Atualiza campo conceito
+    const conceitoInput = document.getElementById(`conceito_tat[${re}]`);
+    if (conceitoInput) {
+      conceitoInput.value = conceito;
+    }
+
+    // Atualiza campo nota
+    const notaInput = document.getElementById(`nota[${re}]`);
+    if (notaInput) {
+      notaInput.value = nota;
+    }
+  }
+
+  // Aplica o evento aos inputs de pontuação
+  window.addEventListener('DOMContentLoaded', () => {
+    const inputs = document.querySelectorAll('[id^="pontuacao_tat["]');
+    inputs.forEach(input => {
+      input.addEventListener('blur', () => {
+        const re = input.name.match(/\[(\d+)\]/)[1]; // extrai RE
+        conceitoTAT(input.value, re);
+      });
+    });
+  });
+</script>

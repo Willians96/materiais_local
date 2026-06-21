@@ -1,0 +1,236 @@
+{% include 'caixaMensagem.html' %}
+
+<section class="container__cpi">
+
+{% include 'breadcrumb.html' %}
+
+    <h1>EAP - Fase EaD</h1>
+
+    <ul class="menu__upload_nota mt-3">
+
+        <li data-bs-toggle="modal" data-bs-target="#modalUpload">
+            <div type="button" class="btn btn-success">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" fill="currentColor" class="bi bi-file-earmark-excel" viewBox="0 0 16 16">
+                    <path d="M5.884 6.68a.5.5 0 1 0-.768.64L7.349 10l-2.233 2.68a.5.5 0 0 0 .768.64L8 10.781l2.116 2.54a.5.5 0 0 0 .768-.641L8.651 10l2.233-2.68a.5.5 0 0 0-.768-.64L8 9.219l-2.116-2.54z"/>
+                    <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
+                </svg>
+            </div>
+            <div>
+                <p>Upload
+                <br><strong>Planilha CSV</strong></p>
+            </div>
+        </li>
+
+
+        <li data-bs-toggle="modal" data-bs-target="#modalUploadJSon">
+            <div type="button" class="btn btn-warning">
+                <span style="font-size: 32px; color: #fff;">
+                    {;} 
+                </span>
+            </div>
+            <div>
+                <p>Upload
+                <br><strong>Arquivo JSON</strong></p>
+            </div>
+        </li>
+
+
+        <li data-bs-toggle="modal" data-bs-target="#modalColarPlanilha">
+            <div type="button" class="btn btn-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512" fill="currentcolor" width="36px"><path d="M336 64h32a48 48 0 0148 48v320a48 48 0 01-48 48H144a48 48 0 01-48-48V112a48 48 0 0148-48h32" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><rect x="176" y="32" width="160" height="64" rx="26.13" ry="26.13" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/></svg>
+            </div>
+            <div>
+                <p>Colar
+                <br><strong>Planilha</strong></p>
+            </div>
+        </li>
+
+        
+    </ul>
+
+
+    <!-- Modal Upload -->
+    <div class="modal fade" id="modalUpload" tabindex="-1" aria-labelledby="modalUploadLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="?pagina=eap&metodo=uploadNotaEad" method="post" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modalUploadLabel">Upload de Planilha</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="" class="form-label">Selecionar planilha</label>
+                                <input  class="form-control" type="file" name="arquivo" id="arquivo" accept=".csv" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Carregar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Upload JSON -->
+    <div class="modal fade" id="modalUploadJSon" tabindex="-1" aria-labelledby="modalUploadJSonLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="?pagina=eap&metodo=processaUploadJSON" method="post" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modalUploadJsonLabel">Upload de arquivo JSON</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="" class="form-label">Selecionar arquivo JSON:</label>
+                                <input  class="form-control" type="file" name="arquivo" id="arquivo" accept=".json" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Carregar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+    <!-- Modal colar planilha -->
+    <div class="modal fade" id="modalColarPlanilha" tabindex="-1" aria-labelledby="modalColarPlanilha" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <form action="?pagina=eap&metodo=processaPlanilhaColada" method="post" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modaColarPlanilhaLabel">Colar planilha</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+
+
+                                <label for="" class="form-label">
+                                    <strong>Copie e cole na sequência as seguintes colunas:</strong>
+                                    <br>Sobrenome | Nome | RE | E-mail | Unidade | Posto/Graduação | Estado | Início | Término | Tempo | Nota
+                                    <br><span  style="font-size: 12px; color: red;">* desconsiderar o cabeçalho da planilha</span>
+                                </label>
+
+
+
+                                <textarea name="planilha" id="planilha" class="form-control" rows="20" style="font-size: 11px;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Gravar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <br>
+    <hr>
+
+    <!-- Menu listar -->
+
+
+    <div  class="mt-5">
+        
+        <h5>Listar:</h5>
+
+        <a href="?pagina=eap&metodo=listarNotasEadCbSd" class="btn btn-dark">
+            Cabo/Soldado
+        </a>
+
+
+        <a href="?pagina=eap&metodo=listarNotasEadSubSgt" class="btn btn-dark">
+            Subtenente/Sargento
+        </a>
+
+        <a href="?pagina=eap&metodo=listarNotasEadCapTen" class="btn btn-dark">
+            Capitão/Tentente
+        </a>
+
+        <div class="row">
+            <div class="col-md-4 mt-3" style="display: flex; flex-direction: row; gap: 10px;">
+                <label for="" class="form-label">Filtrar:</label>
+                <input type="text" class="form-control" id="filtro">
+            </div>
+        </div>
+
+        <table id="tblNotasEad" class="table table-bordered mt-3" style="text-transform: uppercase;">
+            <tr>
+                <th>Posto/Graduação</th>
+                <th>RE</th>
+                <th>Nome</th>
+                <th>Unidade</th>
+                <th>Status</th>
+                <th>Término</th>
+                <th>Nota</th>
+            </tr>
+
+
+            {% if notas is defined and notas is not empty %}
+               
+                {% for nota in notas %}
+                    <tr>
+                        <td>{{ nota.pt_gr }}</td>
+                        <td>{{ nota.re }}</td>
+                        <td>{{ nota.nome }} {{ nota.sobrenome }} </td>
+                        <td>{{ nota.unidade }}</td>
+                        <td>{{ nota.status }}</td>
+                        <td>{{ nota.termino|date("d/m/Y H:i") }}</td>
+                        <td>{{ nota.nota }}</td>
+                    </tr>
+                {% endfor %}
+
+            {% endif %}
+        
+
+        </table>
+
+    </div>
+
+    
+
+</section>
+
+
+<script>
+    //filtrar tabela
+    document.addEventListener("DOMContentLoaded", function () {
+        const filtro = document.getElementById("filtro");
+        const tabela = document.getElementById("tblNotasEad");
+    
+        filtro.addEventListener("keyup", function () {
+            const termo = filtro.value.toLowerCase();
+            const linhas = tabela.getElementsByTagName("tr");
+    
+            for (let i = 1; i < linhas.length; i++) { // pula o cabeçalho
+                const linha = linhas[i];
+                const textoLinha = linha.textContent.toLowerCase();
+    
+                if (textoLinha.includes(termo)) {
+                    linha.style.display = "";
+                } else {
+                    linha.style.display = "none";
+                }
+            }
+        });
+    });
+    </script>
+    

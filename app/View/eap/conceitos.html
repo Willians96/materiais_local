@@ -1,0 +1,146 @@
+{% include 'caixaMensagem.html' %}
+
+<section class="container__cpi">
+
+    {% include 'breadcrumb.html' %}
+
+    <div class="titulo__secao">
+        <p>
+            EAP - Turma
+        </p>
+        <div class="barra__titulo_secao"></div>
+    </div>
+
+    <table class="table mt-3" style="width: 400px;">
+        <tr>
+            <th>Turma</th>
+            <td>{{turma}}</td>
+        </tr>
+        <tr>
+            <th>Tipo</th>
+            <td>{{tipo}}</td>
+        </tr>
+        <tr>
+            <th>Período</th>
+            <td>{{periodo}}</td>
+        </tr>
+        <tr>
+            <th>Discentes</th>
+            <td>{{total_discentes}}</td>
+        </tr>
+
+    </table>
+
+   <h3>{{turma}} de {{periodo}}</h3>
+
+    <div>
+        <a href="?pagina=eap&metodo=gerarXML&id={{id_turma}}" class="btn btn-success">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M320-240 80-480l240-240 57 57-184 184 183 183-56 56Zm320 0-57-57 184-184-183-183 56-56 240 240-240 240Z"/></svg>
+            <!-- Extrair XML -->
+             NBI
+        </a>
+
+        <a href="?pagina=eap&metodo=gerarPDFConceito&id={{id_turma}}" target="_blank" class="btn btn-success">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">
+                <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+                <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1"/>
+            </svg>
+            Lista de ciência
+        </a>
+    </div>
+   
+    <table class="table table-bordered mt-3">
+        <tr>
+            <th rowspan="2">#</th>
+            <th rowspan="2">Posto/Grad.</th>
+            <th rowspan="2">RE</th>
+            <th rowspan="2">Nome</th>
+            <th rowspan="2">OPM</th>
+            <th colspan="3">TAT</th>
+            <th colspan="2">TAF</th>
+            <th colspan="2">Verificação Prof.</th>
+        </tr>
+
+        <tr>
+
+            <th>Pontos</th>
+            <th>Conceito</th>
+            <th>Nota</th>
+
+            <th>Pontos</th>
+            <th>Conceito</th>
+
+            <th>Nota</th>
+            <th>Conceito</th>
+        </tr>
+
+        
+        {% for discente in discentes %}
+
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ discente['pt_gr'] }}</td>
+                <td>{{ discente['re'] }}-{{ discente['dg_re'] }}</td>
+                <td>
+                    <form action="?pagina=policial&metodo=pesquisarPM" method="post" target="_blank">
+                        <input type="text" name="re" value="{{ discente['re'] }}" hidden>
+                        <button type="submit" class="btn">
+                            {{ discente['nome'] }}
+                        </button>
+                    </form>
+                </td>
+                
+                <td>{{ discente['opm'] }}</td>
+ 
+                <td>{{discente.pontuacao_tat}}</td>
+                <td>{{discente.conceito_tat}}</td>
+                <td>{{discente.nota_tat}}</td>
+
+                <td>{{discente.pontuacao_taf}}</td>
+                <td
+                    {% if discente.conceito_taf == 'Inapto' %}
+                        style="background-color: rgb(248, 140, 140);"
+                    {% endif %}
+                    >
+                    {{discente.conceito_taf}}</td>
+
+
+                <td> 
+                    {# Caso exista a nota da prova presencial, faz a soma da nota final #}
+                    {% if discente.avaliacao_nota %}
+                        {% set nota_verif_prof = discente.nota_ead + discente.avaliacao_nota %}
+                        {{ nota_verif_prof }}
+
+                        {# verificar o conceito #}
+                        {% if nota_verif_prof < 5 %}
+                            {% set conceito_verif_prof = 'Insuficiente' %}
+                        {% elseif nota_verif_prof >= 5 and nota_verif_prof < 7 %}
+                            {% set conceito_verif_prof = 'Regular' %}
+                        {% elseif nota_verif_prof >= 7 and nota_verif_prof < 8.5 %}
+                            {% set conceito_verif_prof = 'Bom' %}
+                        {% elseif nota_verif_prof >= 8.5 and nota_verif_prof < 9.6 %}
+                            {% set conceito_verif_prof = 'MB' %}
+                        {% else %}
+                            {% set conceito_verif_prof = 'Excep.' %}
+                        {% endif %}
+                    {% else %}
+                        Pendente
+                    {% endif %}
+                  
+                </td>
+
+                <td
+                    {% if conceito_verif_prof == 'Insuficiente' %}
+                        style="background-color: rgb(248, 140, 140);"
+                    {% endif %}
+                >                    
+                    {{ conceito_verif_prof }}
+                </td>
+
+            </tr>
+
+        {% endfor %}
+
+    </table>
+
+</section>
